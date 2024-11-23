@@ -20,7 +20,7 @@ def menu_awal():
     print("""\n 
           [bold green underline]1.Masukan Kartu [/bold green underline] \n 
           [bold yellow underline]2.Buat Akun     [/bold yellow underline] \n
-          [bold red underline]3. Keluar       [/bold red underline] \n
+          [bold red underline]0. Keluar       [/bold red underline] \n
           """)
     
 

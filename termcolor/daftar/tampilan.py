@@ -9,7 +9,6 @@ import os
 import hashlib
 import time
 
-from ..model.user import save_user
 
 def formulir():
     valid = False
@@ -65,18 +64,7 @@ def formulir():
             
             
             
-def isi_saldo_awal(data):
-    data = data
-    data['saldo'] = 0
-    valid = False
-    
-    while valid != True:
-        saldo = int(Prompt.ask("Saldo Awal"))
-        if saldo >= 50000:
-            data['saldo'] += saldo
-            valid = True
-        else:
-            valid = False
+
             
     
 def kartu_atm(data):
@@ -96,14 +84,7 @@ def kartu_atm(data):
     
     print(Panel(Text("SCREENSHOT KARTU INI!! SIMPAN DAN INGAT!", style="black on yellow", justify='center')))
     
-    
-def simpan_user(data):
-    print(Text(".....Mengupload..", justify='center'))
-    
-    time.sleep(2)
-    
-    save_user(data)
-    print(Panel(Text("SELAMAT ANDA SUDAH TERDAFTAR!", style="white on green", justify='center')))
+
    
         
         
