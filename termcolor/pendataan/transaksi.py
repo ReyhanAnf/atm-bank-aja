@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from .user import data_user
+
 pd.set_option('display.max_columns', None)
 
 
@@ -31,7 +33,7 @@ def update_transaksi(kode, kolom, nilai_baru):
         
 
 def cek_penerima(identity):
-    df = data_transaksi()
+    df = data_user()
     
     if not df.loc[df['usernama'] == identity].empty:
         index = df.loc[df['usernama'] == identity].index[0]
@@ -41,11 +43,12 @@ def cek_penerima(identity):
         return df.iloc[index]
     else:
         return False
-    
+
+
 def generate_kode(metode, len):
     kode = ''
     
-    if metode.lower() == 'tranfer':
+    if metode.lower() == 'transfer':
         kode += 'TRF-'
     elif metode.lower() == 'setor':
         kode += 'STR-'

@@ -35,11 +35,14 @@ def formulir_transfer(sesi):
         while isian:
             penerima = Prompt.ask("Usernama atau Nomor Kartu Penerima")
             penerima = cek_penerima(penerima)
-            if penerima == None:
+            nominal = int(Prompt.ask("Jumlah Transfer"))
+            
+            if type(penerima) == type(False):
+                print(Panel(Text("PENERIMA TIDAK DITEMUKAN!", style="bold white on orange", justify='center')))
                 continue
             
-            nominal = int(Prompt.ask("Usernama"))
             if nominal < 10000:
+                print(Panel(Text("MINIMAL TRANSFER RP. 10.000", style="bold white on orange", justify='center')))
                 continue
             
             isian = False
@@ -50,7 +53,7 @@ def formulir_transfer(sesi):
         total = nominal + admin
         
         
-        print(kode, pengirim, penerima, nominal, metode, admin, total)
+        print(kode, pengirim, penerima['nama'], nominal, metode, admin, total)
         #
         
         # PILIHAN KEMBALI KE MENU
