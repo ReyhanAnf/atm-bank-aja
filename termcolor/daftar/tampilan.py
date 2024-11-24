@@ -59,7 +59,7 @@ def formulir():
             return data
         else:
             print(Panel(Text("PIN TIDAK SESUAI!", style="bold white on red", justify='center')))
-            time.sleep(3)
+            time.sleep(1)
             valid = False
             
             
@@ -69,12 +69,12 @@ def formulir():
     
 def kartu_atm(data):
     content = f" Nama: {data['nama']} \n\n Username: {data['usernama']} \n\n Email: {data['email']} \n\n No. Handphone: {data['no_hp']} \n\n Tanggal Lahir: {data['kelahiran']} \n\n Alamat: {data['alamat']}"
-    content2 = f"=============== \n = {data['nomor_kartu']} = \n =============== \n\n Member: {data['keanggotaan']} \n\n Saldo: {data['saldo']}"
+    content2 = f"Nomor Kartu \n =============== \n = {data['nomor_kartu']} = \n =============== \n\n Member: {data['keanggotaan']} \n\n Saldo: Rp {data['saldo']:,.2f}"
     
     lay = Layout()
     lay.split_row(
-        Layout(Panel(Text(content))),
-        Layout(Panel(Text(content2, style="bold")))
+        Layout(Panel(Text(content.upper()))),
+        Layout(Panel(Text(content2.upper(), style="bold")))
     )
     
     print("\n\n")

@@ -22,7 +22,7 @@ def generate_kode(len):
 def daftar_user(data):
     print(Text(".....Mengupload..", justify='center'))
     
-    time.sleep(2)
+    time.sleep(.7)
     
     tambah_user(data)
     print(Panel(Text("SELAMAT ANDA SUDAH TERDAFTAR!", style="white on green", justify='center')))

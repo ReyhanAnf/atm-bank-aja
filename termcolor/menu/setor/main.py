@@ -9,7 +9,7 @@ from ...pendataan.transaksi import cek_penerima, konfirmasi_transaksi
 
 from .proses import mutasi
 
-def formulir_transfer(sesi):
+def formulir_setor(sesi):
     # Argumen sesi membawa nilai bertipe dict yang berisi 'auth' sebagai penanda bahwa user telah melakukan login 
     # dan 'data' membawa informasi data user yang telah login
     # sesi['auth'] bertipe boolean
@@ -23,36 +23,31 @@ def formulir_transfer(sesi):
         os.system('cls')
         
         # menampilan header sebagai penanda ini di program bank aja dan menunjukan berada di menu apa
-        header("Transfer", user['nama'])
+        header("Setor", user['nama'])
         
         ######## ISI
         
         isian = True
-        penerima = {}
         nominal = 0
         while isian:
-            penerima = Prompt.ask("Usernama atau Nomor Kartu Penerima")
-            penerima = cek_penerima(penerima)
-            nominal = int(Prompt.ask("Jumlah Transfer"))
+            print(Panel(Text("SETOR HARUS MENGGUNAKAN KELIPATAN RP. 50.000 ATAU RP. 100.000", style="bold white on navy_blue", justify='center')))
+            nominal = int(Prompt.ask("Nominal Setor"))
             
-            if type(penerima) == type(False):
-                print(Panel(Text("PENERIMA TIDAK DITEMUKAN!", style="bold white on yellow", justify='center')))
-                continue
-            
-            if nominal < 10000:
-                print(Panel(Text("MINIMAL TRANSFER RP. 10.000", style="bold white on yellow", justify='center')))
+            if nominal % 50000 != 0 or nominal < 50000:
+                print(Panel(Text("SETOR HARUS MENGGUNAKAN KELIPATAN RP. 50.000 ATAU RP. 100.000", style="bold black on yellow", justify='center')))
+                print(Panel(Text("MINIMAL SETOR RP. 10.000", style="bold white on yellow", justify='center')))
                 continue
             
             isian = False
             
         
-        metode = 'transfer'
-        admin = 2500
+        metode = 'setor'
+        admin = 0
         total = nominal + admin
         
         formulir = {
             'pengirim': user,
-            'penerima': penerima,
+            'penerima': user,
             'metode': metode,
             'admin' : admin,
             'status' : 'menunggu',
@@ -69,7 +64,7 @@ def formulir_transfer(sesi):
             mutasi(data)
             
         elif lanjut == False and data != None:
-            remenu = formulir_transfer(sesi)
+            remenu = formulir_setor(sesi)
             return remenu
             
         else:

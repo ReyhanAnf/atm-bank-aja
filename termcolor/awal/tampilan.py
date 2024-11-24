@@ -9,7 +9,7 @@ import os
 def menu_awal():
     os.system('cls')
     
-    judul = Text.assemble("BANK", (" AJA", "cyan"), justify='center')
+    judul = Text.assemble("BANK", (" AJA", "blue"), style="underline bold grey7 on grey78", justify='center')
     deskripsi = Text.assemble("Halo, senang berjumpa dengan Anda! Silahkan", (" Masuk atau Daftar", "orange"), justify='center')
     
     print(Panel(judul))

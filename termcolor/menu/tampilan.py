@@ -8,7 +8,11 @@ def pilihan_menu(menu):
     text = "\n "
         
     for i in range(len(menu)):
-        formatext = f"bold underline color({random.randint(1, 50)})"
+        color = random.randint(1, 255)
+        if color in [0, 16, 17, 232, 233, 234] :
+            color = 14
+            
+        formatext = f"bold underline color({color})"
         tag_open = f"\t\t [{formatext}]"
         tag_close = f"[/{formatext}] \n"
         
@@ -28,7 +32,7 @@ def header(judul, nama):
     #Buat tampilan header untuk menandakan ini berada di menu yang mana
     
     # Dengan parameter judul dan nama user yang sudah diverifikasi masuk
-    judul = Text.assemble("BANK", (" AJA", "cyan"), f" - {judul.upper()}", justify='center')
+    judul = Text.assemble("BANK", (" AJA", "dark_cyan"), f" - {judul.upper()}", style="bold grey7 on grey78", justify='center')
     deskripsi = Text.assemble("HALO ", (f"{nama.upper()}", "cyan bold"),  justify='center')
     
     print(Panel(judul))

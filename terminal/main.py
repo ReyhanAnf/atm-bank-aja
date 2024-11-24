@@ -9,5 +9,13 @@ def main():
         os.system('cls')
         
         # Menu Awal
-        menu_awal()
-        program = False
+        pilihan = menu_awal()
+        if pilihan == 1:
+            print("masuk")
+        elif pilihan == 2:
+            print("daftar")
+        elif pilihan == 0:
+            print("keluar")
+        else:
+            print("Pilihan tidak valid")
+        

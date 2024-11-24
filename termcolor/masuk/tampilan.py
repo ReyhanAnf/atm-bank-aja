@@ -18,8 +18,14 @@ def formulir_masuk():
         
         print(Panel(judul))
         print(Panel(deskripsi))
+        print(Panel(Text(f"KETIKAN KELUAR UNTUK KEMBALI", style="bold white on navy_blue", justify='center')))
         
         usernama_kartu = Prompt.ask("Usernama atau Kartu")
+        
+        if usernama_kartu.lower() == 'keluar':
+            sukses = False
+            return {'auth' : False, 'data': None}
+        
         user = cek_user_kartu(usernama_kartu)
         
         if type(user) != type(False):
@@ -33,17 +39,17 @@ def formulir_masuk():
                     continue
                 else:
                     print(Panel(Text("BERHASIL MASUK!", style="bold white on green", justify='center')))
-                    time.sleep(2)
+                    time.sleep(1)
                     sukses = True
                     return sesi
                 
             print(Panel(Text("TELAH MENCOBA SEBANYAK 3 KALI - ANDA AKAN KELUAR!!", style="bold white on red", justify='center')))
-            time.sleep(2)
-            break
+            time.sleep(1)
+            return {'auth': False, 'data': None}
             
         else:
             print(Panel(Text("GAGAL MASUK! ULANGI", style="bold white on red", justify='center')))
-            time.sleep(2)
+            time.sleep(1)
             
                 
             

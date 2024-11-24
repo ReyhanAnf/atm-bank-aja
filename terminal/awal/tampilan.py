@@ -11,7 +11,7 @@ def menu_awal():
             =================== \n
             1. Masukan Kartu \n
             2. Daftar \n
-            3. Keluar \n
+            0. Keluar \n
             =================== \n
     """
     print(menu)

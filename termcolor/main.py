@@ -31,6 +31,8 @@ def main():
                         continue
                     else:
                         break
+                else:
+                    break
             continue
                         
             
@@ -50,7 +52,7 @@ def main():
                     yakin = input("Yakin data sudah benar? [y/t]")
                     if yakin.lower() == 'y':
                         tambah_user(data)
-                        time.sleep(10)
+                        time.sleep(1)
                         program_register = False
                     else:
                         continue

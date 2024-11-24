@@ -6,7 +6,7 @@ from rich import print
 import time, os
 
 from ...daftar.tampilan import kartu_atm
-from ..tampilan import pilihan_kembali_ke_menu, header
+from ..tampilan import pilihan_kembali_ke_menu, header, belum_login
 
 def info_rekening(sesi):
     # Argumen sesi membawa nilai bertipe dict yang berisi 'auth' sebagai penanda bahwa user telah melakukan login 
@@ -33,7 +33,6 @@ def info_rekening(sesi):
         return remenu
         
     else:
-        print(Panel(Text("ANDA BELUM LOGIN, ANDA AKAN SEGERA KELUAR!", style="bold white on red", justify='center')))
-        time.sleep(1)
+        belum_login()
         remenu = False
         return remenu

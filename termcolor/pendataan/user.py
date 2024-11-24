@@ -6,6 +6,22 @@ pd.set_option('display.max_columns', None)
 def data_user():
     df = pd.read_csv('./data/user.csv')
     return df
+ 
+
+
+def update_user(usernama, kolom, nilai_baru):
+    df = data_user()
+    df_tujuan = df[df['usernama'] == usernama]
+    
+    if not df_tujuan.empty:
+        df.loc[df['usernama'] == usernama, kolom] = nilai_baru
+        
+        df.to_csv('./data/user.csv', index=False)
+        return True
+        
+    else:
+        print(f'Data dengan usernama: {usernama}, Tidak ditemukan')
+        return False
 
 
 def tambah_user(data):
@@ -21,8 +37,8 @@ def cek_user_kartu(inputer):
     if not df.loc[df['usernama'] == inputer].empty:
         index = df.loc[df['usernama'] == inputer].index[0]
         return df.iloc[index]
-    elif not df.loc[df['nomor_kartu'] == inputer].empty:
-        index = df.loc[df['nomor_kartu'] == inputer].index[0]
+    elif not df.loc[df['nomor_kartu'] == int(inputer)].empty:
+        index = df.loc[df['nomor_kartu'] == int(inputer)].index[0]
         return df.iloc[index]
     else:
         return False

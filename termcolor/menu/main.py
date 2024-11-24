@@ -6,8 +6,11 @@ import os
 from .tampilan import pilihan_menu,header
 from .info_rekening.main import info_rekening
 from .cek_saldo.main import cek_saldo
+from .riwayat_transaksi.main import riwayat_transaksi
 from .transfer.main import formulir_transfer
-
+from .setor.main import formulir_setor
+from .tarik.main import formulir_tarik
+from .bayar.main import bayar
 
 def menu_utama(sesi):
     # Argumen sesi membawa nilai bertipe dict yang berisi 'auth' sebagai penanda bahwa user telah melakukan login 
@@ -26,7 +29,7 @@ def menu_utama(sesi):
         header(judul="Menu", nama=data['nama'])
         
         # List menu pada fitur menu
-        menu = ["Informasi Rekening", "Cek Saldo", "Histori Transaksi", "Transfer", 'Setor', "Tarik", "Transfer", "Bayar", "Keluar"]
+        menu = ["Informasi Rekening", "Cek Saldo", "Histori Transaksi", "Transfer", 'Setor', "Tarik", "Bayar", "Keluar"]
         # List menu akan di konversi menjadi text yang bisa langsung di print menggunakan perulangan di fungsi 'pilihan_menu'
         text = pilihan_menu(menu)
         
@@ -52,12 +55,40 @@ def menu_utama(sesi):
             # Jika remenu = False maka akan keluar
             remenu = cek_saldo(sesi)
             return remenu
+        elif pilihan == 3:
+            # jalankan program CEK SALDO
+            # cek_saldo akan menampilkan informasi saldo dan mengembalikan nilai BOOLEAN yang mana akan menentukan apakah akan kembali ke menu utama atau keluar
+            # Jika remenu = True maka akan kembali ke menu utama
+            # Jika remenu = False maka akan keluar
+            remenu = riwayat_transaksi(sesi)
+            return remenu
         elif pilihan == 4:
             # jalankan program CEK SALDO
             # cek_saldo akan menampilkan informasi saldo dan mengembalikan nilai BOOLEAN yang mana akan menentukan apakah akan kembali ke menu utama atau keluar
             # Jika remenu = True maka akan kembali ke menu utama
             # Jika remenu = False maka akan keluar
             remenu = formulir_transfer(sesi)
+            return remenu
+        elif pilihan == 5:
+            # jalankan program CEK SALDO
+            # cek_saldo akan menampilkan informasi saldo dan mengembalikan nilai BOOLEAN yang mana akan menentukan apakah akan kembali ke menu utama atau keluar
+            # Jika remenu = True maka akan kembali ke menu utama
+            # Jika remenu = False maka akan keluar
+            remenu = formulir_setor(sesi)
+            return remenu
+        elif pilihan == 6:
+            # jalankan program CEK SALDO
+            # cek_saldo akan menampilkan informasi saldo dan mengembalikan nilai BOOLEAN yang mana akan menentukan apakah akan kembali ke menu utama atau keluar
+            # Jika remenu = True maka akan kembali ke menu utama
+            # Jika remenu = False maka akan keluar
+            remenu = formulir_tarik(sesi)
+            return remenu
+        elif pilihan == 7:
+            # jalankan program CEK SALDO
+            # cek_saldo akan menampilkan informasi saldo dan mengembalikan nilai BOOLEAN yang mana akan menentukan apakah akan kembali ke menu utama atau keluar
+            # Jika remenu = True maka akan kembali ke menu utama
+            # Jika remenu = False maka akan keluar
+            remenu = bayar(sesi)
             return remenu
             
             
@@ -67,4 +98,3 @@ def menu_utama(sesi):
         
         else:
             break
-    
