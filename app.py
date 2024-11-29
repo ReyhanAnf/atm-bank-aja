@@ -1,5 +1,6 @@
 import termcolor
 import terminal
+import gui
 
 menu = """
     =========== \n
@@ -16,6 +17,8 @@ if mode == 1:
     terminal.main()
 elif mode == 2:
     termcolor.main()
+elif mode == 3:
+    gui.main()
 else:
     print("Pilihan Salah")
     
