@@ -1,7 +1,7 @@
 import customtkinter as ctk
 
 from ..setelan import reset_frame
-
+from .handler_tombol import kembali_ke_home, handle_masuk
 
 def formulir_masuk(app, frame):
     app.title("BANK AJA - GUI")
@@ -19,23 +19,45 @@ def formulir_masuk(app, frame):
     
     
     ###################################################### BODY
+    ########### INPUT USER
+    # Buat pembungkus untuk untuk inputan user kartu
+    user_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
+    user_wrap.pack(side='top', padx=10, pady=10, fill='x', expand=True)
     
+    # Buat keterangan tentang input
+    user_Label = ctk.CTkLabel(user_wrap, text="Nomor Rekening atau User_input") # Label Inputan
+    user_Label.pack(side='left', padx=10, pady=10)
     
-    #Sapaan
-    sapaan = ctk.CTkLabel(frame['body'], text="Halo! Selamat Datang Di BANK AJA. Silahkan Masuk")
-    sapaan.pack(side="top", fill='x')
+    # buat inputan
+    user_input = ctk.CTkEntry(user_wrap, corner_radius=10, placeholder_text="cth : 812347892174", width=300) # Inputan
+    user_input.pack(side='right', padx=10, pady=10)
+    
+    ######## #INPUT PIN
+    # Buat pembungkus untuk inputan pin
+    pin_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
+    pin_wrap.pack(side='top', padx=10, pady=10, fill='x', expand=True)
+    
+    # Buat keterangan tentang input
+    pinLabel = ctk.CTkLabel(pin_wrap, text="PIN") # Label
+    pinLabel.pack(side='left', padx=10, pady=10)
+    
+    # Buat inputan
+    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300) # Inputan
+    pin_input.pack(side='right', padx=10, pady=10)
+    
+    inputs = {
+        'usernama': user_input,
+        'pin': pin_input,
+    }
     ###################################################### BODY
     
 
     ###################################################### FOOTER
-    masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk")
+    masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : handle_masuk(frame, inputs))
     masukBtn.pack(side="left", fill='x', expand=True, padx=10)
     
     
-    def kembali(app, frame):
-        from ..awal.main import home
-        home(app, frame)
-    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", command=lambda : kembali(app, frame))
+    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", command=lambda : kembali_ke_home(app, frame))
     batalBtn.pack(side="left", fill='x', expand=True, padx=10)
     ###################################################### FOOTER
     

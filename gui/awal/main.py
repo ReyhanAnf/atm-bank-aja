@@ -1,6 +1,7 @@
 import customtkinter as ctk
 
 from ..masuk.main import formulir_masuk
+from ..daftar.main import formulir_daftar
 from ..setelan import reset_frame
 
 def home(app, frame):
@@ -34,10 +35,10 @@ def home(app, frame):
     masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : formulir_masuk(app, frame))
     masukBtn.pack(side="left", fill='x', expand=True, padx=10)
     
-    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Daftar")
+    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Daftar", command=lambda : formulir_daftar(app, frame))
     daftarBtn.pack(side="left", fill='x', expand=True, padx=10)
     
-    keluarBtn = ctk.CTkButton(frame['footer'], height=50,text="Keluar")
+    keluarBtn = ctk.CTkButton(frame['footer'], height=50,text="Keluar", command=exit)
     keluarBtn.pack(side="left", fill='x', expand=True, padx=10)
     ###################################################### FOOTER
 

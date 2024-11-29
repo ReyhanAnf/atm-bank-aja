@@ -2,6 +2,7 @@
 import os
 
 from .awal.tampilan import menu_awal
+from .masuk.tampilan import formulir_masuk
 
 def main():
     program = True
@@ -10,8 +11,22 @@ def main():
         
         # Menu Awal
         pilihan = menu_awal()
+        
         if pilihan == 1:
-            print("masuk")
+            sesi = formulir_masuk()
+            
+            remenu = True
+            while remenu:
+                if sesi['auth'] == True:
+                    ## DASHBOARD
+                    remenu = 'menu utama'
+                    if remenu == True:
+                        continue
+                    else:
+                        break
+                else:
+                    break
+            
         elif pilihan == 2:
             print("daftar")
         elif pilihan == 0:

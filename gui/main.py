@@ -13,7 +13,7 @@ ctk.set_appearance_mode("System")
 # Supported themes : green, dark-blue, blue
 ctk.set_default_color_theme("green") 
 
-appWidth, appHeight = 700, 600
+appWidth, appHeight = 700, 700
 
 def main():
     app = ctk.CTk()
@@ -36,5 +36,6 @@ def main():
     }
     
     awal.home(app, frame)
+    
     app.mainloop()
         

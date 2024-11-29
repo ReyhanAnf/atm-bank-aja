@@ -18,4 +18,5 @@ def menu_awal():
     # Pilih Menu
     pilihan = int(input('Pilih : '))
     
+    
     return pilihan
