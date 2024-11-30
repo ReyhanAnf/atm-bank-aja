@@ -31,7 +31,7 @@ def formulir_daftar(app, frame):
     nama_Label.pack(side='left', padx=10, pady=5)
     
     # buat inputan
-    nama_input = ctk.CTkEntry(nama_wrap, corner_radius=10, placeholder_text="Nama Lengkap", width=300) # Inputan
+    nama_input = ctk.CTkEntry(nama_wrap, corner_radius=10, placeholder_text="Nama Lengkap", width=300, height=40) # Inputan
     nama_input.pack(side='right', padx=10, pady=5)
     
     
@@ -45,7 +45,7 @@ def formulir_daftar(app, frame):
     usernamaLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    usernama_input = ctk.CTkEntry(usernama_wrap, corner_radius=10, placeholder_text="usernama", width=300) # Inputan
+    usernama_input = ctk.CTkEntry(usernama_wrap, corner_radius=10, placeholder_text="usernama", width=300, height=40) # Inputan
     usernama_input.pack(side='right', padx=10, pady=5)
     
     
@@ -59,7 +59,7 @@ def formulir_daftar(app, frame):
     emailLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    email_input = ctk.CTkEntry(email_wrap, corner_radius=10, placeholder_text="email", width=300) # Inputan
+    email_input = ctk.CTkEntry(email_wrap, corner_radius=10, placeholder_text="email", width=300, height=40) # Inputan
     email_input.pack(side='right', padx=10, pady=5)
     
     
@@ -73,7 +73,7 @@ def formulir_daftar(app, frame):
     noHpLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    noHp_input = ctk.CTkEntry(noHp_wrap, corner_radius=10, placeholder_text="noHp", width=300) # Inputan
+    noHp_input = ctk.CTkEntry(noHp_wrap, corner_radius=10, placeholder_text="noHp", width=300, height=40) # Inputan
     noHp_input.pack(side='right', padx=10, pady=5)
     
     
@@ -106,7 +106,7 @@ def formulir_daftar(app, frame):
     lahirLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    lahir_input = ctk.CTkEntry(lahir_wrap, corner_radius=10, placeholder_text="01/01/2000", width=300) # Inputan
+    lahir_input = ctk.CTkEntry(lahir_wrap, corner_radius=10, placeholder_text="01/01/2000", width=300, height=40) # Inputan
     lahir_input.pack(side='right', padx=10, pady=5)
     
     
@@ -120,7 +120,7 @@ def formulir_daftar(app, frame):
     alamatLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    alamat_input = ctk.CTkTextbox(alamat_wrap, corner_radius=10, width=300) # Inputan
+    alamat_input = ctk.CTkTextbox(alamat_wrap, corner_radius=10, width=300, height=40) # Inputan
     alamat_input.pack(side='right', padx=10, pady=5)
     
     
@@ -134,7 +134,7 @@ def formulir_daftar(app, frame):
     pinLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300) # Inputan
+    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300, height=40) # Inputan
     pin_input.pack(side='right', padx=10, pady=5)
     
     
@@ -148,7 +148,7 @@ def formulir_daftar(app, frame):
     kpinLabel.pack(side='left', padx=10, pady=5)
     
     # Buat inputan
-    kpin_input = ctk.CTkEntry(kpin_wrap, corner_radius=10, placeholder_text="***", width=300) # Inputan
+    kpin_input = ctk.CTkEntry(kpin_wrap, corner_radius=10, placeholder_text="***", width=300, height=40) # Inputan
     kpin_input.pack(side='right', padx=10, pady=5)
     
     
@@ -162,7 +162,7 @@ def formulir_daftar(app, frame):
     saldo_Label.pack(side='left', padx=10, pady=5)
     
     # buat inputan
-    saldo_input = ctk.CTkEntry(saldo_wrap, corner_radius=10, placeholder_text="50000", width=300) # Inputan
+    saldo_input = ctk.CTkEntry(saldo_wrap, corner_radius=10, placeholder_text="50000", width=300, height=40) # Inputan
     saldo_input.pack(side='right', padx=10, pady=5)
     
     
@@ -184,11 +184,11 @@ def formulir_daftar(app, frame):
 
     ###################################################### FOOTER
     ###################################################### 
-    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", command=lambda : kembali_ke_home(app, frame))
+    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", fg_color='orange', command=lambda : kembali_ke_home(app, frame))
     batalBtn.pack(side="left", fill='x', expand=True, padx=10)
     
     
-    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Lanjut Daftar", command=lambda : handle_daftar(app, frame, inputs))
+    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Lanjut Daftar", fg_color='blue', command=lambda : handle_daftar(app, frame, inputs))
     daftarBtn.pack(side="left", fill='x', expand=True, padx=10)
     ###################################################### 
     ###################################################### FOOTER

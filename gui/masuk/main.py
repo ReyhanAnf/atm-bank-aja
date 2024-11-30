@@ -9,16 +9,22 @@ def formulir_masuk(app, frame):
     reset_frame(frame['header'])
     reset_frame(frame['body'])
     reset_frame(frame['footer'])
-    ###################################################### HEADER
     
+    
+    ###################################################### HEADER
+    ##############################################    
     
     title = ctk.CTkButton(frame['header'], text="BANK AJA - MASUK", font=('Arial', 28, 'bold'))
     title.pack(side="top")
+    
+    ##############################################    
     ###################################################### HEADER
     
     
     
     ###################################################### BODY
+    ############################################## 
+    
     ########### INPUT USER
     # Buat pembungkus untuk untuk inputan user kartu
     user_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
@@ -29,8 +35,9 @@ def formulir_masuk(app, frame):
     user_Label.pack(side='left', padx=10, pady=10)
     
     # buat inputan
-    user_input = ctk.CTkEntry(user_wrap, corner_radius=10, placeholder_text="cth : 812347892174", width=300) # Inputan
+    user_input = ctk.CTkEntry(user_wrap, corner_radius=10, placeholder_text="cth : 812347892174", width=300, height=40) # Inputan
     user_input.pack(side='right', padx=10, pady=10)
+    ###########
     
     ######## #INPUT PIN
     # Buat pembungkus untuk inputan pin
@@ -42,23 +49,30 @@ def formulir_masuk(app, frame):
     pinLabel.pack(side='left', padx=10, pady=10)
     
     # Buat inputan
-    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300) # Inputan
+    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300, height=40) # Inputan
     pin_input.pack(side='right', padx=10, pady=10)
+    ############
+    
     
     inputs = {
         'usernama': user_input,
         'pin': pin_input,
     }
+    ############################################## 
     ###################################################### BODY
     
 
     ###################################################### FOOTER
-    masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : handle_masuk(frame, inputs))
+    ############################################ 
+    
+    masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : handle_masuk(app, frame, inputs))
     masukBtn.pack(side="left", fill='x', expand=True, padx=10)
     
     
-    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", command=lambda : kembali_ke_home(app, frame))
+    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", fg_color='red', command=lambda : kembali_ke_home(app, frame))
     batalBtn.pack(side="left", fill='x', expand=True, padx=10)
+    
+    ############################################ 
     ###################################################### FOOTER
     
     

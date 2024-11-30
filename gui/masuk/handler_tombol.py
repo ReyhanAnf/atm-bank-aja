@@ -2,15 +2,15 @@ import time
 
 import customtkinter as ctk
 
-from ..pendataan.user import cek_user_kartu
-from .proses import cek_pin
+from ..pendataan.user import cek_user_kartu, cek_pin
+from ..menu.main import dashboard
 
 def kembali_ke_home(app, frame):
     from ..awal.main import home
     home(app, frame)
 
 
-def handle_masuk( frame, inputs):
+def handle_masuk(app, frame, inputs):
     user_input = inputs['usernama'].get()
     pin_input = inputs['pin'].get()
     
@@ -26,6 +26,10 @@ def handle_masuk( frame, inputs):
         else:
             sukses = ctk.CTkLabel(frame['body'], text="BERHASIL", fg_color="green")
             sukses.pack(side='top', fill='x', expand=True)
+            
+            time.sleep(1)
+            
+            dashboard(app, frame, sesi)
     
     else:
         gagal = ctk.CTkLabel(frame['body'], text="USER ATAU NOMOR KARTU TIDAK DITEMUKAN", fg_color="yellow", text_color='black')

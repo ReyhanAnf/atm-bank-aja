@@ -21,13 +21,13 @@ def main():
     app.geometry(f"{appWidth}x{appHeight}")
     
     frame_header = ctk.CTkFrame(app, corner_radius=10, fg_color="transparent")
-    frame_header.pack(side="top", fill="x", expand=True)
+    frame_header.pack(side="top", fill="x", expand=True, ipadx=10, ipady=10)
     
     frame_body = ctk.CTkFrame(app, corner_radius=10, fg_color="transparent")
-    frame_body.pack(side="top", fill="both", expand=True)
+    frame_body.pack(side="top", fill="both", expand=True, ipadx=10, ipady=10)
     
     frame_footer = ctk.CTkFrame(app, corner_radius=10, fg_color="transparent")
-    frame_footer.pack(side="bottom", fill="x", expand=True)
+    frame_footer.pack(side="bottom", fill="x", expand=True, ipadx=10, ipady=10)
     
     frame = {
         'header': frame_header,

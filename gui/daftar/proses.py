@@ -52,8 +52,6 @@ def daftar_user(app, frame, data):
         
     
 
-
-     
             
 def kartu_atm(app, frame, data):
     reset_frame(frame['body'])
@@ -98,13 +96,6 @@ def kartu_atm(app, frame, data):
     kode_seri = ctk.CTkButton(kartu_wrap, text=data['kode_seri'], text_color='black', font=('Arial', 20))
     kode_seri.pack(side='right', padx=10, pady=10)
     
-    
-    
-    dialog_wrap = ctk.CTkFrame(frame['body'], width=700)
-    dialog_wrap.pack(side='top', padx=10, pady=10, fill='x', expand=True)
-    
-    dialog = ctk.CTkLabel(dialog_wrap, text="Apakah anda sudah yakin data sudah benar? ", text_color='white', font=('Arial', 22))
-    dialog.pack(side='top', padx=5, pady=5, fill='x', expand=True)
     
     
     ###################################################### FOOTER

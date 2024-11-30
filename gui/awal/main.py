@@ -35,10 +35,10 @@ def home(app, frame):
     masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : formulir_masuk(app, frame))
     masukBtn.pack(side="left", fill='x', expand=True, padx=10)
     
-    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Daftar", command=lambda : formulir_daftar(app, frame))
+    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Daftar", fg_color='blue', command=lambda : formulir_daftar(app, frame))
     daftarBtn.pack(side="left", fill='x', expand=True, padx=10)
     
-    keluarBtn = ctk.CTkButton(frame['footer'], height=50,text="Keluar", command=exit)
+    keluarBtn = ctk.CTkButton(frame['footer'], height=50,text="Keluar", fg_color='red', command=exit)
     keluarBtn.pack(side="left", fill='x', expand=True, padx=10)
     ###################################################### FOOTER
 
