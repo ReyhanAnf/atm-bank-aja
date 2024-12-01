@@ -8,6 +8,8 @@ from .cek_saldo.main import cek_saldo
 from .transfer.main import transfer
 from .setor.main import setor
 from .tarik.main import tarik
+from .bayar.main import bayar
+from .riwayat_transaksi.main import riwayat_transaksi
 
 def dashboard(app, frame, sesi):
     # Argumen sesi membawa nilai bertipe dict yang berisi 'auth' sebagai penanda bahwa user telah melakukan login 
@@ -50,7 +52,7 @@ def dashboard(app, frame, sesi):
         ceksaldo_btn = ctk.CTkButton(frame1, text='Cek Saldo', command=lambda : cek_saldo(app, frame, sesi))
         ceksaldo_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
-        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi')
+        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi', command=lambda : riwayat_transaksi(app, frame, sesi))
         riwayat_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
         keluar_btn = ctk.CTkButton(frame1, text='Keluar', fg_color='red', command=lambda : kembali_ke_home(app, frame))
@@ -70,7 +72,7 @@ def dashboard(app, frame, sesi):
         tarik_btn = ctk.CTkButton(frame2, text='Tarik Tunai', command=lambda : tarik(app, frame, sesi))
         tarik_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
          
-        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran')
+        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran', command=lambda : bayar(app, frame, sesi))
         bayar_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
 
         
