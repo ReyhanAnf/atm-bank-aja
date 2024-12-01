@@ -1,11 +1,16 @@
+# Import library eksternal yaitu library TKinter atau CustomTKinter
 import customtkinter as ctk
 
+# Import module internal
 from ..setelan import reset_frame
 from .handler_tombol import kembali_ke_home, handle_masuk
 
+# Fungsi untuk mengimput data dalam login user
 def formulir_masuk(app, frame):
+    # Buat judul aplikasi
     app.title("BANK AJA - GUI")
     
+    # Reset semua frame utama agar bersih dari widget lain
     reset_frame(frame['header'])
     reset_frame(frame['body'])
     reset_frame(frame['footer'])
@@ -14,6 +19,7 @@ def formulir_masuk(app, frame):
     ###################################################### HEADER
     ##############################################    
     
+    # Buat tampilan judul untuk navigasi
     title = ctk.CTkButton(frame['header'], text="BANK AJA - MASUK", font=('Arial', 28, 'bold'))
     title.pack(side="top")
     
@@ -53,7 +59,7 @@ def formulir_masuk(app, frame):
     pin_input.pack(side='right', padx=10, pady=10)
     ############
     
-    
+    # Bungkus semua inputan kedalam 1 variabel penampung bertipe dict
     inputs = {
         'usernama': user_input,
         'pin': pin_input,
@@ -65,10 +71,11 @@ def formulir_masuk(app, frame):
     ###################################################### FOOTER
     ############################################ 
     
+    # Buat tombol masuk untuk melanjutkan proses masuk ke dalam fungsi handle_masuk
     masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : handle_masuk(app, frame, inputs))
     masukBtn.pack(side="left", fill='x', expand=True, padx=10)
     
-    
+    # Buat batal masuk untuk kembali ke home
     batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", fg_color='red', command=lambda : kembali_ke_home(app, frame))
     batalBtn.pack(side="left", fill='x', expand=True, padx=10)
     
