@@ -34,16 +34,16 @@ def formulir_masuk():
                 
                 if not sesi['auth']:
                     print(f"GAGAL MASUK! ULANGI {i}/3")
-                    time.sleep('1')
+                    time.sleep(1)
                     continue
                 else:
                     print(f"BERHASIL MASUK")
-                    time.sleep('1')
+                    time.sleep(1)
                     sukses = True
                     return sesi
                 
             print("ANDA TELAH MENCOBA 3 KALI, ANDA AKAN KELUAR!")
-            time.sleep('1')
+            time.sleep(1)
             return {
                 'auth' : False,
                 'data' : None
@@ -51,4 +51,4 @@ def formulir_masuk():
         
         else:
             print("GAGAL MASUK! ULANGI")
-            time.sleep('1')
+            time.sleep(1)

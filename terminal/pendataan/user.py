@@ -6,6 +6,14 @@ def data_user():
     df = pd.read_csv('./data/user.csv')
     return df
 
+
+def tambah_user(data):
+    df = data_user()
+    
+    df.loc[len(df)] = data
+    df.to_csv('./data/user.csv', index=False)
+
+
 def cek_user_kartu(inputer):
     df = data_user()
     
