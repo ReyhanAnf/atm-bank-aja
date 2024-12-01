@@ -66,7 +66,7 @@ def dashboard(app, frame, sesi):
         ceksaldo_btn = ctk.CTkButton(frame1, text='Cek Saldo', command=lambda : cek_saldo(app, frame, sesi))
         ceksaldo_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
-        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi')
+        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi', command=lambda : riwayat_transaksi(app, frame, sesi))
         riwayat_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
         # Tombol untuk keluar
@@ -92,7 +92,7 @@ def dashboard(app, frame, sesi):
         tarik_btn = ctk.CTkButton(frame2, text='Tarik Tunai', command=lambda : tarik(app, frame, sesi))
         tarik_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
          
-        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran')
+        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran', command=lambda: bayar(app, frame, sesi))
         bayar_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         ######### MENU FRAME 2
 
