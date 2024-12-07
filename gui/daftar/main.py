@@ -1,256 +1,575 @@
 # Import library eksternal yaitu library TKinter atau CustomTKinter
+# import customtkinter as ctk
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import customtkinter as ctk
 
+from ..setelan import relative_to_assets
 # Import module internal
-from ..setelan import reset_frame
-from .handler_tombol import kembali_ke_home, handle_daftar
+# from ..setelan import reset_frame
+# from .handler_tombol import kembali_ke_home, handle_daftar
+
+LOC = "daftar"
 
 # Fungsi untuk mengimput data dalam pendaftaran user
-def formulir_daftar(app, frame):
+def formulir_daftar(app):
+    
     # Buat judul aplikasi
     app.title("BANK AJA - GUI")
     
-    # Reset semua frame utama agar bersih dari widget lain
-    reset_frame(frame['header'])
-    reset_frame(frame['body'])
-    reset_frame(frame['footer'])
+    
+    
+    # ###################################################### HEADER
+    # ######################################################
     
     
     
-    ###################################################### HEADER
-    ###################################################### 
+    app.geometry("687x800")
+    app.configure(bg = "#EBF3FF")
+    canvas = Canvas(
+        app,
+        bg = "#EBF3FF",
+        height = 800,
+        width = 687,
+        bd = 0,
+        highlightthickness = 0,
+        relief = "ridge"
+    )
+    canvas.place(x = 0, y = 0)
     
-    # Buat tampilan judul untuk navigasi
-    title = ctk.CTkButton(frame['header'], text="BANK AJA - DAFTAR", font=('Arial', 28, 'bold'))
-    # Tampilkan tampilan judul untuk navigasi
-    title.pack(side="top")
+    # # Buat tampilan judul untuk navigasi
+    # # Tampilkan tampilan judul untuk navigasi
     
-    ###################################################### 
-    ###################################################### HEADER
+    header_img = PhotoImage(file=relative_to_assets("image_1.png", LOC))
+    header = canvas.create_image(
+        343.0,
+        42.0,
+        image=header_img
+    )
+    
+    logo_img = PhotoImage(file=relative_to_assets("image_2.png", LOC))
+    logo = canvas.create_image(
+        88.0,
+        47.0,
+        image=logo_img
+    )
+    
+    canvas.create_text(
+        576.0,
+        11.0,
+        anchor="nw",
+        text="Daftar",
+        fill="#000000",
+        font=("Poppins Regular", 28 * -1)
+    )
+    
+    canvas.create_text(
+        181.0,
+        125.0,
+        anchor="nw",
+        text="Selamat Datang Di Bank Bangun Mimpi",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+    sapaan_image =PhotoImage(file=relative_to_assets("image_3.png", LOC))
+    sapaan = canvas.create_image(
+        344.0,
+        137.0,
+        image=sapaan_image
+    )
+
+    canvas.create_text(
+        303.0,
+        133.0,
+        anchor="nw",
+        text="Daftar",
+        fill="#000000",
+        font=("Poppins SemiBold", 28 * -1)
+    )
+
     
     
+    # ######################################################
+    # ###################################################### HEADER
     
-    ###################################################### BODY
-    ######################################################
+
+
+
     
-    ########### INPUT USER
-    # Buat pembungkus untuk untuk inputan nama
-    nama_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk untuk inputan nama
-    nama_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
+    # ###################################################### BODY
+    # ######################################################
+
+
+    ########### INPUT USERNAMA
+    # Buat pembungkus untuk untuk inputan usernama
+    iusernama_img = PhotoImage(
+        file=relative_to_assets("image_4.png", LOC))
+    iusernama_bg = canvas.create_image(
+        185.0,
+        227.0,
+        image=iusernama_img
+    )
+    
+    # Tampilkan pembungkus untuk untuk inputan usernama
     
     # Buat keterangan tentang input
-    nama_Label = ctk.CTkLabel(nama_wrap, text="Nama Lengkap") # Label Inputan
     # Tampilkan keterangan tentang input
-    nama_Label.pack(side='left', padx=10, pady=5
-                    )
+    canvas.create_text(
+        45.0,
+        175.0,
+        anchor="nw",
+        text="Usernama",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+    
     # buat inputan
-    nama_input = ctk.CTkEntry(nama_wrap, corner_radius=10, placeholder_text="Nama Lengkap", width=300, height=40) # Inputan
+    iusernama = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
     # Tampilkan inputan
-    nama_input.pack(side='right', padx=10, pady=5)
-    
-    
-    ######## #INPUT USERNAMA
-    # Buat pembungkus untuk inputan usernama
-    usernama_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk inputan usernama
-    usernama_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
+    iusernama.place(
+        x=49.0,
+        y=209.0,
+        width=272.0,
+        height=35.28813552856445
+    )
+
+
+    ########### INPUT NAMA
+    # Buat pembungkus untuk untuk inputan nama
+    inama_img = PhotoImage(file=relative_to_assets("image_5.png", LOC))
+    inama_bg = canvas.create_image(
+        185.0,
+        302.0,
+        image=inama_img
+    )
+    # Tampilkan pembungkus untuk untuk inputan usernama
     
     # Buat keterangan tentang input
-    usernamaLabel = ctk.CTkLabel(usernama_wrap, text="Usernama") # Label
+    canvas.create_text(
+        45.0,
+        256.0,
+        anchor="nw",
+        text="Nama Lengkap",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     # Tampilkan keterangan tentang input
-    usernamaLabel.pack(side='left', padx=10, pady=5)
-    
-    # Buat inputan
-    usernama_input = ctk.CTkEntry(usernama_wrap, corner_radius=10, placeholder_text="usernama", width=300, height=40) # Inputan
-    # Tampilkan inputan
-    usernama_input.pack(side='right', padx=10, pady=5)
-    
-    
+
+    # buat inputan
+    inama = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
+    # tampilkan inputan
+    inama.place(
+        x=49.0,
+        y=284.0,
+        width=272.0,
+        height=35.28813552856445
+    )
+
+
     ######## #INPUT EMAIL
     # Buat pembungkus untuk inputan email
-    email_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
+    iemail_img = PhotoImage(file=relative_to_assets("image_6.png", LOC))
+    iemail_bg = canvas.create_image(
+        185.0,
+        377.0,
+        image=iemail_img
+    )
     # Tampilkan pembungkus untuk inputan email
-    email_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
     
     # Buat keterangan tentang input
-    emailLabel = ctk.CTkLabel(email_wrap, text="Email") # Label
+    canvas.create_text(
+        44.0,
+        331.0,
+        anchor="nw",
+        text="Email",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     # Tampilkan keterangan tentang input
-    emailLabel.pack(side='left', padx=10, pady=5)
-    
     # Buat inputan
-    email_input = ctk.CTkEntry(email_wrap, corner_radius=10, placeholder_text="email", width=300, height=40) # Inputan
+    iemail = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
     # Tampilkan inputan
-    email_input.pack(side='right', padx=10, pady=5)
-    
+    iemail.place(
+        x=49.0,
+        y=359.0,
+        width=272.0,
+        height=35.28813552856445
+    )
+
     
     ######## #INPUT No HP
     # Buat pembungkus untuk inputan nomor hp
-    noHp_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
     # Tampilkan pembungkus untuk inputan nomor hp
-    noHp_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
+    inohp_img = PhotoImage(file=relative_to_assets("image_7.png", LOC))
+    inohp = canvas.create_image(
+        185.0,
+        452.0,
+        image=inohp_img
+    )
+        
     # Buat keterangan tentang input
-    noHpLabel = ctk.CTkLabel(noHp_wrap, text="Nomor HP") # Label
     # Tampilkan keterangan tentang input
-    noHpLabel.pack(side='left', padx=10, pady=5)
-    
+    canvas.create_text(
+        45.0,
+        406.0,
+        anchor="nw",
+        text="Nomor HP",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     # Buat inputan
-    noHp_input = ctk.CTkEntry(noHp_wrap, corner_radius=10, placeholder_text="noHp", width=300, height=40) # Inputan
+    inohp = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
     # Tampilkan inputan
-    noHp_input.pack(side='right', padx=10, pady=5)
-    
+    inohp.place(
+        x=49.0,
+        y=434.0,
+        width=272.0,
+        height=35.28813552856445
+    )
+        
     
     ############# INPUT ANGGOTA
-    # Buat pembungkus untuk inoutan anggota
-    anggota_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk inoutan anggota
-    anggota_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
-    # Buat keterangan tentang input atau Label
-    anggotaLabel = ctk.CTkLabel(anggota_wrap, text="Anggota") # Label
-    # Tampilkan keterangan tentang input atau Label
-    anggotaLabel.pack(side='left', padx=10, pady=5)
+    canvas.create_text(
+        45.0,
+        482.0,
+        anchor="nw",
+        text="Anggota",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     
     # Buat dan tampilkan Pilihan
     anggota_var = ctk.StringVar(value='gold') # Variabel penampung
     # Pilihan 1
-    a_silver = ctk.CTkRadioButton(anggota_wrap, text="Silver", value='silver', variable=anggota_var) # Inputan
-    a_silver.pack(side='right', padx=10, pady=5)
+    a_silver = ctk.CTkRadioButton(app, text="Silver", width=90.0, height=35.28813552856445, value='silver', variable=anggota_var, text_color="black") # Inputan
+    a_silver.place( x=49.0, y=509.0 )
+    
     # Pilihan 2
-    a_gold = ctk.CTkRadioButton(anggota_wrap, text="Gold", value='gold', variable=anggota_var) # Inputan
-    a_gold.pack(side='right', padx=10, pady=5)
+    a_gold = ctk.CTkRadioButton(app, width=90.0, height=35.28813552856445, text="Gold", value='gold', variable=anggota_var, text_color="black") # Inputan
+    a_gold.place( x=149.0, y=509.0 )
     # Pilihan 3
-    a_platinum = ctk.CTkRadioButton(anggota_wrap, text="Platinum", value='platinum', variable=anggota_var) # Inputan
-    a_platinum.pack(side='right', padx=10, pady=5)
-    
-    
+    a_platinum = ctk.CTkRadioButton(app, text="Platinum" , width=90.0, height=35.28813552856445, value='platinum', variable=anggota_var, text_color="black") # Inputan
+    a_platinum.place( x=249.0, y=509.0 )
+
+
+
     ######## #INPUT TANGGAL LAHIR
     # Buat pembungkus untuk inputan tanggal lahir
-    lahir_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
+    ilahir_img = PhotoImage(file=relative_to_assets("image_9.png", LOC))
     # Buat pembungkus untuk inputan tanggal lahir
-    lahir_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
+    ilahir_bg = canvas.create_image(
+        185.0,
+        602.0,
+        image=ilahir_img
+    )
     # Buat keterangan tentang input
-    lahirLabel = ctk.CTkLabel(lahir_wrap, text="Tanggal Lahir") # Label
     # Tampilkan keterangan tentang input
-    lahirLabel.pack(side='left', padx=10, pady=5)
-    
+    canvas.create_text(
+        46.0,
+        558.0,
+        anchor="nw",
+        text="Tanggal Lahir",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     # Buat inputan
-    lahir_input = ctk.CTkEntry(lahir_wrap, corner_radius=10, placeholder_text="01/01/2000", width=300, height=40) # Inputan
+    ilahir = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
     # Tampilkan inputan
-    lahir_input.pack(side='right', padx=10, pady=5)
-    
-    
-    ######## #INPUT ALAMAT
-    # Buat pembungkus untuk inputan alamat
-    alamat_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk inputan alamat
-    alamat_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
+    ilahir.place(
+        x=49.0,
+        y=584.0,
+        width=272.0,
+        height=35.28813552856445
+    )
+
+
+
+    ########### INPUT ALAMAT
+    # Buat pembungkus untuk untuk inputan saldo
+    # Tampilkan pembungkus untuk untuk inputan saldo
+
     # Buat keterangan tentang input
-    alamatLabel = ctk.CTkLabel(alamat_wrap, text="Alamat") # Label
     # Tampilkan keterangan tentang input
-    alamatLabel.pack(side='left', padx=10, pady=5)
-    
-    # Buat inputan
-    alamat_input = ctk.CTkTextbox(alamat_wrap, corner_radius=10, width=300, height=40) # Inputan
+
+    # buat inputan
     # Tampilkan inputan
-    alamat_input.pack(side='right', padx=10, pady=5)
+    canvas.create_text(
+        385.0,
+        175.0,
+        anchor="nw",
+        text="Alamat",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+    ialamat_img = PhotoImage(
+        file=relative_to_assets("image_10.png", LOC))
+    ialamat_bg = canvas.create_image(
+        517.0,
+        264.0,
+        image=ialamat_img
+    )
+
+    ialamat = Text(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0
+    )
+    ialamat.place(
+        x=386.0,
+        y=219.0,
+        width=266.0,
+        height=89.0
+    )
+
+
+    # ######## #INPUT PIN
+    # # Buat pembungkus untuk inputan pin
+    ipin_img = PhotoImage( file=relative_to_assets("image_11.png", LOC))
+    ipin_bg = canvas.create_image(
+        517.0,
+        373.0,
+        image=ipin_img
+    )
+    # # Tampilkan pembungkus untuk inputan pin
+    
+    # # Buat keterangan tentang input
+    canvas.create_text(
+        385.0,
+        326.0,
+        anchor="nw",
+        text="PIN",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+    # # Tampilkan keterangan tentang input
+    
+    # # Buat inputan
+    ipin = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
+    # # Tampilkan inputan
+    ipin.place(
+        x=385.0,
+        y=355.0,
+        width=265.0,
+        height=35.0
+    )
     
     
-    ######## #INPUT PIN
-    # Buat pembungkus untuk inputan pin
-    pin_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk inputan pin
-    pin_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
+    # ######## #INPUT KONFIRMASI PIN
+    # # Buat pembungkus untuk inputan pin
+    ikpin_img = PhotoImage(
+        file=relative_to_assets("image_12.png", LOC))
+    ikpin_bg = canvas.create_image(
+        517.0,
+        448.0,
+        image=ikpin_img
+    )
+    # # Tampilkan pembungkus untuk inputan pin
     
-    # Buat keterangan tentang input
-    pinLabel = ctk.CTkLabel(pin_wrap, text="PIN") # Label
-    # Tampilkan keterangan tentang input
-    pinLabel.pack(side='left', padx=10, pady=5)
+    # # Buat keterangan tentang input
+    canvas.create_text(
+        385.0,
+        399.0,
+        anchor="nw",
+        text="Konfirmasi PIN",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+    # # Tampilkan keterangan tentang input
     
-    # Buat inputan
-    pin_input = ctk.CTkEntry(pin_wrap, corner_radius=10, placeholder_text="***", width=300, height=40) # Inputan
-    # Tampilkan inputan
-    pin_input.pack(side='right', padx=10, pady=5)
+    # # Buat inputan
+    ikpin = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
+    )
+    # # Tampilkan inputan
+    ikpin.place(
+        x=385.0,
+        y=430.0,
+        width=265.0,
+        height=35.0
+    )
     
-    
-    ######## #INPUT KONFIRMASI PIN
-    # Buat pembungkus untuk inputan pin
-    kpin_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
-    # Tampilkan pembungkus untuk inputan pin
-    kpin_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
-    # Buat keterangan tentang input
-    kpinLabel = ctk.CTkLabel(kpin_wrap, text="KONFIRMASI PIN") # Label
-    # Tampilkan keterangan tentang input
-    kpinLabel.pack(side='left', padx=10, pady=5)
-    
-    # Buat inputan
-    kpin_input = ctk.CTkEntry(kpin_wrap, corner_radius=10, placeholder_text="***", width=300, height=40) # Inputan
-    # Tampilkan inputan
-    kpin_input.pack(side='right', padx=10, pady=5)
-    
-    
+
     ########### INPUT SALDO
     # Buat pembungkus untuk untuk inputan saldo
-    saldo_wrap = ctk.CTkFrame(frame['body']) # Pembungkus
+    isaldo_img = PhotoImage(file=relative_to_assets("image_13.png", LOC))
+    isaldo_bg = canvas.create_image(
+        517.0,
+        602.0,
+        image=isaldo_img
+    )
     # Tampilkan pembungkus untuk untuk inputan saldo
-    saldo_wrap.pack(side='top', padx=10, pady=5, fill='x', expand=True)
-    
+
     # Buat keterangan tentang input
-    saldo_Label = ctk.CTkLabel(saldo_wrap, text="Saldo Awal Rp.") # Label Inputan
+    canvas.create_text(
+        385.0,
+        549.0,
+        anchor="nw",
+        text="Saldo Awal",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
     # Tampilkan keterangan tentang input
-    saldo_Label.pack(side='left', padx=10, pady=5)
-    
+    canvas.create_text(
+        378.0,
+        591.0,
+        anchor="nw",
+        text="Rp",
+        fill="#000000",
+        font=("Poppins Medium", 16 * -1)
+    )
+
     # buat inputan
-    saldo_input = ctk.CTkEntry(saldo_wrap, corner_radius=10, placeholder_text="50000", width=300, height=40) # Inputan
-    # Tampilkan inputan
-    saldo_input.pack(side='right', padx=10, pady=5)
+    isaldo = Entry(
+        bd=0,
+        bg="#DAE1EB",
+        fg="#000716",
+        highlightthickness=0,
+        font= ("Poppins", 18)
     
+    )
+    # Tampilkan inputan
+    isaldo.place(
+        x=414.0,
+        y=584.0,
+        width=236.0,
+        height=35.0
+    )
+
     # Bungkus semua inputan kedalam 1 variabel penampung bertipe dict
     inputs = {
-        'nama': nama_input,
-        'usernama': usernama_input,
-        'email' : email_input,
-        'no_hp': noHp_input,
+        'nama': inama,
+        'usernama': iusernama,
+        'email' : iemail,
+        'no_hp': inohp,
         'anggota': anggota_var,
-        'lahir': lahir_input,
-        'alamat': alamat_input,
-        'pin': pin_input,
-        'kpin': kpin_input,
-        'saldo' : saldo_input
+        'lahir': ilahir,
+        'alamat': ialamat,
+        'pin': ipin,
+        'kpin': ikpin,
+        'saldo' : isaldo
     }
+    
+    
     
     ######################################################
     ###################################################### BODY
-    
-    
 
+    
     ###################################################### FOOTER
     ###################################################### 
     
-    # Buat tombol batal
+    # Buat tombol Keluar
     # parameter command adalah untuk menjalankan perintah ketika di klik
     # lambda merupakan fungsi sederhana untuk keperluan sekali saja
     # ketika tombol batal di klik maka akan batal ke fungsi lambda yang mengeksekusi fungsi kembali ke home
-    batalBtn = ctk.CTkButton(frame['footer'], height=50,text="Batal", fg_color='orange', command=lambda : kembali_ke_home(app, frame))
+    from ..awal.main import home
+    keluar_img = PhotoImage(
+        file=relative_to_assets("button_3.png", LOC))
+    keluar_btn = Button(
+        image=keluar_img,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: home(app),
+        relief="flat"
+    )
+    keluar_btn.place(
+        x=12.0,
+        y=715.0,
+        width=213.0,
+        height=67.0
+    )
     # Tampilkan tombol
-    batalBtn.pack(side="left", fill='x', expand=True, padx=10)
     
     # Buat tombol daftar
     # parameter command adalah untuk menjalankan perintah ketika di klik
     # lambda merupakan fungsi sederhana untuk keperluan sekali saja
     # ketika tombol daftar di klik maka akan daftar ke fungsi lambda yang mengeksekusi fungsi handle daftar
-    daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Lanjut Daftar", fg_color='blue', command=lambda : handle_daftar(app, frame, inputs))
+    from .handler_tombol import handle_daftar
+    
+    daftar_img = PhotoImage(
+        file=relative_to_assets("button_1.png", LOC))
+    daftar_btn = Button(
+        image=daftar_img,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: print(inputs),
+        relief="flat"
+    )
+    daftar_btn.place(
+        x=463.0,
+        y=717.0,
+        width=213.0,
+        height=67.0
+    )
     # Tampilkan tombol
-    daftarBtn.pack(side="left", fill='x', expand=True, padx=10)
+    
+
+    
+    # Buat tombol masuk
+    # parameter command adalah untuk menjalankan perintah ketika di klik
+    # lambda merupakan fungsi sederhana untuk keperluan sekali saja
+    # ketika tombol daftar di klik maka akan daftar ke fungsi lambda yang mengeksekusi fungsi handle daftar
+    from ..masuk.main import formulir_masuk
+    
+    masuk_img = PhotoImage(
+        file=relative_to_assets("button_2.png", LOC))
+    masuk_btn = Button(
+        image=masuk_img,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: formulir_masuk(app),
+        relief="flat"
+    )
+    masuk_btn.place(
+        x=225.0,
+        y=717.0,
+        width=238.0,
+        height=64.0
+    )
+
+    
     ###################################################### 
     ###################################################### FOOTER
     
-    
-       
-
-
-    
+    app.resizable(False, False)
+    app.mainloop()
