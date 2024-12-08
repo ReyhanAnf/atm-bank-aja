@@ -51,7 +51,7 @@ def formulir_daftar():
 def kartu_atm(data):
     data_keys = data.keys()
     
-    table = ""
+    table = "\n ============================== \n"
     for key in data_keys:
         text = f"{key:<20} | {data[key]:>20} \n"
         table += text

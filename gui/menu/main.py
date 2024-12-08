@@ -11,6 +11,8 @@ from .cek_saldo.main import cek_saldo
 from .transfer.main import transfer
 from .setor.main import setor
 from .tarik.main import tarik
+from .bayar.main import bayar
+from .riwayat_transaksi.main import riwayat_transaksi
 
 # Fungsi utama ketika telah di authentikasi
 def dashboard(app, frame, sesi):
@@ -34,7 +36,6 @@ def dashboard(app, frame, sesi):
         
         # Pada frame header akan memunculkan tampilan judul dan sapaan
         # Tampikan Judul dan sapaan halo untuk user yang telah masuk
-        
         title = ctk.CTkButton(frame['header'], text="BANK AJA - DASHBOARD", font=('Arial', 28, 'bold'))
         title.pack(side="top")
         
@@ -64,8 +65,7 @@ def dashboard(app, frame, sesi):
         ceksaldo_btn = ctk.CTkButton(frame1, text='Cek Saldo', command=lambda : cek_saldo(app, frame, sesi))
         ceksaldo_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
-        # Tombol riwayat transaksi
-        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi')
+        riwayat_btn = ctk.CTkButton(frame1, text='Riwayat Transaksi', command=lambda : riwayat_transaksi(app, frame, sesi))
         riwayat_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         
         # Tombol untuk keluar
@@ -92,7 +92,7 @@ def dashboard(app, frame, sesi):
         tarik_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
          
         # Tombol bayar
-        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran')
+        bayar_btn = ctk.CTkButton(frame2, text='Pembayaran', command=lambda: bayar(app, frame, sesi))
         bayar_btn.pack(side='top', fill='both', expand=True, padx=10, pady=10)
         ######### MENU FRAME 2
 
@@ -108,4 +108,5 @@ def dashboard(app, frame, sesi):
         ######################################### 
         ################################################## FOOTER
     else:
-        pass
+        # Jika user belum atau tidak pernah autentikasi maka kembalikan ke home
+        kembali_ke_home(app, frame)

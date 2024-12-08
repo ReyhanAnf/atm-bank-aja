@@ -1,6 +1,8 @@
 
+# Import module pendataan
 from ...pendataan.user import update_user
 from ...pendataan.transaksi import tambah_transaksi
+
 
 
 def mutasi(data):
@@ -22,23 +24,17 @@ def mutasi(data):
     # Jika transaksi nya True atau berhasil
     if transaksi == True:
         
-        ## Update saldo pengirim
+        ## Maka Update saldo pengirim
         pengirim = data['pengirim']
         saldo_pengirim = int(pengirim['saldo']) - int(data['total'])
+        
         # Maka update data usernama pengirim
         update_user(usernama=pengirim['usernama'], kolom='saldo', nilai_baru=saldo_pengirim)
-        
-        
-        ## Update saldo penerima
-        if type(data['penerima']) != type('str'):
-            penerima = data['penerima']
-            saldo_penerima = int(penerima['saldo']) + int(data['jumlah'])
-            # Maka update data usernama penerima
-            update_user(usernama=penerima['usernama'], kolom='saldo', nilai_baru=saldo_penerima)
-        
+
         return True
         
     else:
+        # JIka tidak kembalikan nilai false
         return False
             
     
