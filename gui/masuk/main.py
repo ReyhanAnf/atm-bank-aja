@@ -2,24 +2,25 @@
 # import customtkinter as ctk
 from tkinter import PhotoImage, Button, Entry, Canvas
 
-from ..setelan import relative_to_assets
+from ..setelan import akses_aset_media
 
 
 LOC = 'masuk'
 
 # Fungsi untuk mengimput data dalam login user
 def formulir_masuk(app):
+    app.geometry("687x649")
+    
     canvas = Canvas(
         app,
         bg = "#EBF3FF",
-        height = 549,
+        height = 649,
         width = 687,
         bd = 0,
         highlightthickness = 0,
         relief = "ridge"
         )
     canvas.place(x = 0, y = 0)
-    
     # ###################################################### HEADER
     # ##############################################    
     
@@ -29,7 +30,7 @@ def formulir_masuk(app):
     
     
     header_img = PhotoImage(
-    file=relative_to_assets("image_1.png", LOC))
+    file=akses_aset_media("image_1.png", LOC))
     header = canvas.create_image(
         343.0,
         42.0,
@@ -37,7 +38,7 @@ def formulir_masuk(app):
     )
 
     logo_img = PhotoImage(
-        file=relative_to_assets("image_2.png", LOC))
+        file=akses_aset_media("image_2.png", LOC))
     logo = canvas.create_image(
         88.0,
         47.0,
@@ -65,7 +66,7 @@ def formulir_masuk(app):
     
     
     sapaan_img = PhotoImage(
-        file=relative_to_assets("image_3.png", LOC))
+        file=akses_aset_media("image_3.png", LOC))
     sapaan = canvas.create_image(
         344.0,
         137.0,
@@ -91,7 +92,7 @@ def formulir_masuk(app):
     
     # ########### INPUT USER
     # # Buat pembungkus untuk untuk inputan user kartu
-    iusernama_img = PhotoImage(file=relative_to_assets("image_4.png", LOC))
+    iusernama_img = PhotoImage(file=akses_aset_media("image_4.png", LOC))
     iusernama_bg = canvas.create_image(
         347.0,
         290.0,
@@ -126,7 +127,7 @@ def formulir_masuk(app):
     
     ######## #INPUT PIN
     # Buat pembungkus untuk inputan pin
-    ipin_img = PhotoImage(file=relative_to_assets("image_5.png", LOC))
+    ipin_img = PhotoImage(file=akses_aset_media("image_5.png", LOC))
     ipin_bg = canvas.create_image(
         347.0,
         402.0,
@@ -164,26 +165,33 @@ def formulir_masuk(app):
         'usernama': iusernama,
         'pin': ipin,
     }
+    
+    
+    
+    
+
     # ############################################## 
     # ###################################################### BODY
 
+    
+    
     
     # ###################################################### FOOTER
     # ############################################ 
     
     ## TOMBOL MASUK
     from .handler_tombol import handle_masuk
-    masuk_img = PhotoImage(file=relative_to_assets("button_1.png", LOC))
+    masuk_img = PhotoImage(file=akses_aset_media("button_1.png", LOC))
     masuk_btn = Button(
         image=masuk_img,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: handle_masuk(inputs),
+        command=lambda: handle_masuk(app, canvas, inputs),
         relief="flat"
     )
     masuk_btn.place(
         x=466.0,
-        y=464.0,
+        y=564.0,
         width=213.0,
         height=67.0
     )
@@ -191,7 +199,7 @@ def formulir_masuk(app):
     
     ## TOMBOL DAFTAR
     from ..daftar.main import formulir_daftar
-    daftar_img = PhotoImage(file=relative_to_assets("button_2.png", LOC))
+    daftar_img = PhotoImage(file=akses_aset_media("button_2.png", LOC))
     daftar_btn = Button(
         image=daftar_img,
         borderwidth=0,
@@ -201,7 +209,7 @@ def formulir_masuk(app):
     )
     daftar_btn.place(
         x=228.0,
-        y=464.0,
+        y=564.0,
         width=238.0,
         height=64.0
     )
@@ -209,7 +217,7 @@ def formulir_masuk(app):
     
     ## TOMBOL KELUAR
     from ..awal.main import home
-    keluar_img = PhotoImage(file=relative_to_assets("button_3.png", LOC))
+    keluar_img = PhotoImage(file=akses_aset_media("button_3.png", LOC))
     keluar_btn = Button(
         image=keluar_img,
         borderwidth=0,
@@ -219,12 +227,13 @@ def formulir_masuk(app):
     )
     keluar_btn.place(
         x=15.0,
-        y=462.0,
+        y=564.0,
         width=213.0,
         height=67.0
     )
     
     
+
     # ############################################ 
     # ###################################################### FOOTER
     

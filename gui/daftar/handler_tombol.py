@@ -6,13 +6,11 @@ import customtkinter as ctk
 from ..pendataan.user import cek_user_kartu
 from .proses import generate_kode, kartu_atm
 
-# Fungsi untuk kembali ke home
-def kembali_ke_home(app, frame):
-    from ..awal.main import home
-    home(app, frame)
+component = ['canvas']
 
 # Fungsi untuk menghandel tombol daftar dan melanjutkan proses daftar
-def handle_daftar(app, frame, inputs):
+def handle_daftar(inputs, canvas):
+    canvas.delete(component[0])
     # Konversi data dalam inputs kedalam variabel data dengan mengambil data dalam inputan dengan method get
     # Karena inputan masih merupakan data dummy
     data = {
@@ -36,8 +34,15 @@ def handle_daftar(app, frame, inputs):
         # Jika pin yang dimasukan tidak sama dengan konfirmasi pin
         if data['pin'] != inputs['kpin'].get():
             # Maka tampilkan gagal masuk
-            gagal = ctk.CTkLabel(frame['body'], text="MASUKAN PIN DENGAN BENAR", fg_color="orange")
-            gagal.pack(side='top', fill='x', expand=True)
+            status = canvas.create_text(
+                261.0,
+                650.0,
+                anchor="nw",
+                text="GAGAL DAFTAR",
+                fill="red",
+                font=("Poppins Medium", 16 * -1)
+            )
+            component.insert(0, status)
         else:
             # Jika pin sama dengan konfirmasi pin
             # HASHING PIN
@@ -51,12 +56,15 @@ def handle_daftar(app, frame, inputs):
                 saldo = int(data['saldo'])
                 
                 # KETERANGAN SUKSES
-                sukses1 = ctk.CTkLabel(frame['body'], text="SALDO BERHASIL DITAMBAHKAN", fg_color='green') # Label Inputan
-                sukses1.pack(side='top', fill='x', expand=True)
-                
-                # KETERANGAN SUKSES
-                sukses2 = ctk.CTkLabel(frame['body'], text="DATA VALID", fg_color="green")
-                sukses2.pack(side='top', fill='x', expand=True)
+                status = canvas.create_text(
+                    261.0,
+                    650.0,
+                    anchor="nw",
+                    text="DATA VALID",
+                    fill="green",
+                    font=("Poppins Medium", 16 * -1)
+                )
+                component.insert(0, status)
                 
                 # Generate nomor kartu, kode seri dan tambahkan saldo kedalam data dengan memanggil fungsi terkait
                 data['nomor_kartu'] = generate_kode(8)
@@ -64,24 +72,30 @@ def handle_daftar(app, frame, inputs):
                 data['saldo'] = saldo
                 
                 # Tampilkan kartu atm untuk melihat preview data yang diinputkan
-                kartu_atm(app, frame, data)
+                # kartu_atm(app, frame, data)
                 
             except Exception:
                 # Jika terdeteksi error maka akan tampilkan peringatan bukan angka
-                gagal = ctk.CTkLabel(frame['body'], text="Saldo Bukan Angka", fg_color="green")
-                gagal.pack(side='top', fill='x', expand=True)
-                
+                status = canvas.create_text(
+                    261.0,
+                    650.0,
+                    anchor="nw",
+                    text="GAGAL DAFTAR",
+                    fill="red",
+                    font=("Poppins Medium", 16 * -1)
+                )
+                component.insert(0, status)
+                                
     
     else:
         # Jika ternyata user sudah terdaftar maka tampilkan peringatan
-        gagal = ctk.CTkLabel(frame['body'], text="USER TELAH TERDAFTAR", fg_color="yellow", text_color='black')
-        gagal.pack(side='top', fill='x', expand=True)
-    
-    
-    # Hapus pesan peringatan atau sukses sebelumnya ketika pesan baru dimunculkan.
-    # Sehingga akan tampil 1 peringatan ketika 1 aksi 
-    banyak_komponen = len(frame['body'].winfo_children())
-    if banyak_komponen > 9:
-        child = frame['body'].winfo_children()[banyak_komponen - 2]
-        child.destroy()
+        status = canvas.create_text(
+            261.0,
+            650.0,
+            anchor="nw",
+            text="GAGAL! USER TELAH TERDAFTAR",
+            fill="red",
+            font=("Poppins Medium", 16 * -1)
+        )
+        component.insert(0, status)
         

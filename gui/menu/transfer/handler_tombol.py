@@ -1,9 +1,12 @@
-import customtkinter as ctk
 
 from ...pendataan.transaksi import konfirmasi_transaksi
 from .proses import mutasi
 
-def transfer_handle(app, frame, inputs,sesi):
+
+component = ['canvas']
+
+def transfer_handle(app,canvas, sesi, inputs):
+    canvas.delete(component[0])
     # Argumen sesi membawa nilai bertipe dict yang berisi key 'auth' sebagai penanda bahwa user telah melakukan login 
     # dan 'data' membawa informasi data user yang telah login
     # sesi['auth'] bertipe boolean
@@ -11,8 +14,15 @@ def transfer_handle(app, frame, inputs,sesi):
     auth = sesi['auth']
     user = sesi['data']
     
+    
+    app.geometry("687x549")
+    app.configure(bg = "#EBF3FF")
+    
+    
+    
     # ketika user telah login makan jalankan program ini terus sebelum user memilih pilihan keluar
     if auth == True:
+        
         # Masukan semua data dalam inputs kedalam variabel tersendiri
         # Masing^ data dalam inputs mengandung nilai dummy object yang harus di ambil melalui method .get()
         penerima_input = inputs['penerima'].get()
@@ -23,17 +33,12 @@ def transfer_handle(app, frame, inputs,sesi):
         nominal = int(nominal_input)
         
         # JIka nominal lebih dari  Rp 10.000 (Minimal pembayaran adalah 10000) dan merupakan kelipatan 50.000
-        if nominal >= 10000:
+        if nominal >= 10000 and penerima_input != '':
             # Maka lanjutkan ke proses mutasi
             
             # TAMPILAN KETERANGAN SUKSES DAN SIAP MENGIRIM
-            sukses = ctk.CTkLabel(frame['body'], text="PROSES MENGIRIM...", fg_color='green') # Label Inputan
-            sukses.pack(side='top', fill='x', expand=True)
             
             # TAMPILAN PRORES MENGIRIM DAN MULAI PROSES
-            progressbar = ctk.CTkProgressBar(frame['body'], orientation="horizontal", mode='indeterminate', determinate_speed=5, indeterminate_speed=1)
-            progressbar.start()
-            progressbar.pack(pady=20)
             
             # Deklarasi variabel metode, admin dan total
             metode = 'transfer'
@@ -57,31 +62,35 @@ def transfer_handle(app, frame, inputs,sesi):
             # JIka bayar maka saldo pengirim saja yang dikurangi
             # Jika Setor maka saldo penerima ditambah
             # Jika Transfer maka saldo keduanya ditambah dan dikurang
-            konfirmasi_transaksi(app, frame, sesi, data, mutasi)
+            
+            konfirmasi_transaksi(app, sesi, data, mutasi)
+            
             
         else:
             ## Kurang dari Rp 10.000 dan bukan kelipatan 50.000
             # KETERANGAN GAGAL
-            gagal = ctk.CTkLabel(frame['body'], text="NOMINAL MINIMAL RP 10.000", fg_color='orange') # Label Inputan
-            gagal.pack(side='top', fill='x', expand=True)
+            status = canvas.create_text(
+                186.0,
+                380.0,
+                anchor="nw",
+                text="MINIMAL TRANSFER RP 10.000 DAN KELIPATAN RP 50.000",
+                fill="red",
+                font=("Poppins Medium", 16 * -1)
+            )
+            component.insert(0,status)
 
-        # Hapus pesan peringatan atau sukses sebelumnya ketika pesan baru dimunculkan.
-        # Sehingga akan tampil 1 peringatan ketika 1 aksi
-        banyak_komponen = len(frame['body'].winfo_children())
-        if banyak_komponen > 9:
-            child = frame['body'].winfo_children()[banyak_komponen - 2]
-            child.destroy()
-            
-            
-                
-        ################################################## FOOTER
-        ######################################### 
+    else:
+        status = canvas.create_text(
+            186.0,
+            380.0,
+            anchor="nw",
+            text="ANDA AKAN SEGERA KE MENU AWAL",
+            fill="red",
+            font=("Poppins Medium", 16 * -1)
+        )
+        component.insert(0,status)
         
-        # Buat tombol koreksi dan ketika di klik akan kembali mengisi form
-        from .main import transfer
-        koreksiBtn = ctk.CTkButton(frame['footer'], height=50,text="Koreksi", fg_color='orange', text_color='black', command=lambda : transfer(app, frame, sesi))
-        koreksiBtn.pack(side="left", fill='x', expand=True, padx=10)
-        
-        
-        ######################################### 
-        ################################################## FOOTER
+        from ...awal.main import home
+        import time
+        time.sleep(2)
+        home(app)

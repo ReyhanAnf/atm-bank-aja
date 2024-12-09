@@ -3,7 +3,7 @@
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import customtkinter as ctk
 
-from ..setelan import relative_to_assets
+from ..setelan import akses_aset_media
 # Import module internal
 # from ..setelan import reset_frame
 # from .handler_tombol import kembali_ke_home, handle_daftar
@@ -39,14 +39,14 @@ def formulir_daftar(app):
     # # Buat tampilan judul untuk navigasi
     # # Tampilkan tampilan judul untuk navigasi
     
-    header_img = PhotoImage(file=relative_to_assets("image_1.png", LOC))
+    header_img = PhotoImage(file=akses_aset_media("image_1.png", LOC))
     header = canvas.create_image(
         343.0,
         42.0,
         image=header_img
     )
     
-    logo_img = PhotoImage(file=relative_to_assets("image_2.png", LOC))
+    logo_img = PhotoImage(file=akses_aset_media("image_2.png", LOC))
     logo = canvas.create_image(
         88.0,
         47.0,
@@ -62,6 +62,12 @@ def formulir_daftar(app):
         font=("Poppins Regular", 28 * -1)
     )
     
+    sapaan_image =PhotoImage(file=akses_aset_media("image_3.png", LOC))
+    sapaan = canvas.create_image(
+        344.0,
+        137.0,
+        image=sapaan_image
+    )
     canvas.create_text(
         181.0,
         125.0,
@@ -70,21 +76,7 @@ def formulir_daftar(app):
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
-    sapaan_image =PhotoImage(file=relative_to_assets("image_3.png", LOC))
-    sapaan = canvas.create_image(
-        344.0,
-        137.0,
-        image=sapaan_image
-    )
-
-    canvas.create_text(
-        303.0,
-        133.0,
-        anchor="nw",
-        text="Daftar",
-        fill="#000000",
-        font=("Poppins SemiBold", 28 * -1)
-    )
+    
 
     
     
@@ -102,14 +94,12 @@ def formulir_daftar(app):
     ########### INPUT USERNAMA
     # Buat pembungkus untuk untuk inputan usernama
     iusernama_img = PhotoImage(
-        file=relative_to_assets("image_4.png", LOC))
+        file=akses_aset_media("image_4.png", LOC))
     iusernama_bg = canvas.create_image(
         185.0,
         227.0,
         image=iusernama_img
     )
-    
-    # Tampilkan pembungkus untuk untuk inputan usernama
     
     # Buat keterangan tentang input
     # Tampilkan keterangan tentang input
@@ -128,7 +118,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # Tampilkan inputan
     iusernama.place(
@@ -141,7 +131,7 @@ def formulir_daftar(app):
 
     ########### INPUT NAMA
     # Buat pembungkus untuk untuk inputan nama
-    inama_img = PhotoImage(file=relative_to_assets("image_5.png", LOC))
+    inama_img = PhotoImage(file=akses_aset_media("image_5.png", LOC))
     inama_bg = canvas.create_image(
         185.0,
         302.0,
@@ -166,7 +156,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # tampilkan inputan
     inama.place(
@@ -179,7 +169,7 @@ def formulir_daftar(app):
 
     ######## #INPUT EMAIL
     # Buat pembungkus untuk inputan email
-    iemail_img = PhotoImage(file=relative_to_assets("image_6.png", LOC))
+    iemail_img = PhotoImage(file=akses_aset_media("image_6.png", LOC))
     iemail_bg = canvas.create_image(
         185.0,
         377.0,
@@ -203,7 +193,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # Tampilkan inputan
     iemail.place(
@@ -217,7 +207,7 @@ def formulir_daftar(app):
     ######## #INPUT No HP
     # Buat pembungkus untuk inputan nomor hp
     # Tampilkan pembungkus untuk inputan nomor hp
-    inohp_img = PhotoImage(file=relative_to_assets("image_7.png", LOC))
+    inohp_img = PhotoImage(file=akses_aset_media("image_7.png", LOC))
     inohp = canvas.create_image(
         185.0,
         452.0,
@@ -240,7 +230,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # Tampilkan inputan
     inohp.place(
@@ -278,7 +268,7 @@ def formulir_daftar(app):
 
     ######## #INPUT TANGGAL LAHIR
     # Buat pembungkus untuk inputan tanggal lahir
-    ilahir_img = PhotoImage(file=relative_to_assets("image_9.png", LOC))
+    ilahir_img = PhotoImage(file=akses_aset_media("image_9.png", LOC))
     # Buat pembungkus untuk inputan tanggal lahir
     ilahir_bg = canvas.create_image(
         185.0,
@@ -301,7 +291,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # Tampilkan inputan
     ilahir.place(
@@ -331,7 +321,7 @@ def formulir_daftar(app):
         font=("Poppins Medium", 16 * -1)
     )
     ialamat_img = PhotoImage(
-        file=relative_to_assets("image_10.png", LOC))
+        file=akses_aset_media("image_10.png", LOC))
     ialamat_bg = canvas.create_image(
         517.0,
         264.0,
@@ -354,7 +344,7 @@ def formulir_daftar(app):
 
     # ######## #INPUT PIN
     # # Buat pembungkus untuk inputan pin
-    ipin_img = PhotoImage( file=relative_to_assets("image_11.png", LOC))
+    ipin_img = PhotoImage( file=akses_aset_media("image_11.png", LOC))
     ipin_bg = canvas.create_image(
         517.0,
         373.0,
@@ -379,7 +369,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # # Tampilkan inputan
     ipin.place(
@@ -393,7 +383,7 @@ def formulir_daftar(app):
     # ######## #INPUT KONFIRMASI PIN
     # # Buat pembungkus untuk inputan pin
     ikpin_img = PhotoImage(
-        file=relative_to_assets("image_12.png", LOC))
+        file=akses_aset_media("image_12.png", LOC))
     ikpin_bg = canvas.create_image(
         517.0,
         448.0,
@@ -418,7 +408,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     )
     # # Tampilkan inputan
     ikpin.place(
@@ -431,7 +421,7 @@ def formulir_daftar(app):
 
     ########### INPUT SALDO
     # Buat pembungkus untuk untuk inputan saldo
-    isaldo_img = PhotoImage(file=relative_to_assets("image_13.png", LOC))
+    isaldo_img = PhotoImage(file=akses_aset_media("image_13.png", LOC))
     isaldo_bg = canvas.create_image(
         517.0,
         602.0,
@@ -464,7 +454,7 @@ def formulir_daftar(app):
         bg="#DAE1EB",
         fg="#000716",
         highlightthickness=0,
-        font= ("Poppins", 18)
+        font= ("Poppins", 16 * -1)
     
     )
     # Tampilkan inputan
@@ -489,8 +479,6 @@ def formulir_daftar(app):
         'saldo' : isaldo
     }
     
-    
-    
     ######################################################
     ###################################################### BODY
 
@@ -504,7 +492,7 @@ def formulir_daftar(app):
     # ketika tombol batal di klik maka akan batal ke fungsi lambda yang mengeksekusi fungsi kembali ke home
     from ..awal.main import home
     keluar_img = PhotoImage(
-        file=relative_to_assets("button_3.png", LOC))
+        file=akses_aset_media("button_3.png", LOC))
     keluar_btn = Button(
         image=keluar_img,
         borderwidth=0,
@@ -527,12 +515,12 @@ def formulir_daftar(app):
     from .handler_tombol import handle_daftar
     
     daftar_img = PhotoImage(
-        file=relative_to_assets("button_1.png", LOC))
+        file=akses_aset_media("button_1.png", LOC))
     daftar_btn = Button(
         image=daftar_img,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print(inputs),
+        command=lambda: handle_daftar(inputs, canvas),
         relief="flat"
     )
     daftar_btn.place(
@@ -552,7 +540,7 @@ def formulir_daftar(app):
     from ..masuk.main import formulir_masuk
     
     masuk_img = PhotoImage(
-        file=relative_to_assets("button_2.png", LOC))
+        file=akses_aset_media("button_2.png", LOC))
     masuk_btn = Button(
         image=masuk_img,
         borderwidth=0,

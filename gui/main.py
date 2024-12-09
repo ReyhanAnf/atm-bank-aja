@@ -1,8 +1,7 @@
 # Import library eksternal yaitu library TKinter atau CustomTKinter
 # import customtkinter as ctk
-from tkinter import Tk, Canvas, Button, PhotoImage
+from tkinter import Tk
 from .awal import main as awal
-from .setelan import relative_to_assets
 # Seting agar gui sesuai tema system - dark atau light
 # ctk.set_appearance_mode("System") 
 
@@ -48,8 +47,19 @@ def main():
     
     app.configure(bg = "#EBF3FF")
     
-    
-    awal.home(app)
+    # awal.home(app)
+    from .menu.main import dashboard
+    from .pendataan.user import cek_user_kartu
+    inputs = {
+        'usernama': 'reyhananf',
+        'pin':'1212',
+    }
+    user = cek_user_kartu(inputs['usernama'])
+    sesi = {
+        'auth' : True,
+        'data' : user
+    }
+    dashboard(app, sesi)
     
     # Aplikasi dijalankan disini, selama app mainloop maka akan terus berjalan
         

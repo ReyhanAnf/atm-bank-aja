@@ -54,21 +54,26 @@ def cek_user_kartu(inputer):
     # fungsi data_user mengembalikan DataFrame
     df = data_user()
     
-    # Jika identitas usernama yang di inputkan ada didalam data atau tidak kosong
-    if not df.loc[df['usernama'] == inputer].empty:
-        # maka ambil index dari data tersebut
-        index = df.loc[df['usernama'] == inputer].index[0]
-        # lalu kembalikan data ke-index tersebut
-        return df.iloc[index]
-    elif not df.loc[df['nomor_kartu'] == int(inputer)].empty:
-        # Jika identitas nomor kartu yang di inputkan ada didalam data atau tidak kosong
-        # maka ambil index dari data tersebut
-        # lalu kembalikan data ke-index tersebut
-        index = df.loc[df['nomor_kartu'] == int(inputer)].index[0]
-        return df.iloc[index]
-    else:
-        # jika benar benar tidak ditemukan makan kembalikan string "Nama identitas - None"
-        return False
+    # Coba apakah inputan user merupakan integer
+    try:
+        inputer = int(inputer)
+        # Jika identitas usernama yang di inputkan ada didalam data atau tidak kosong
+        if not df.loc[df['nomor_kartu'] == int(inputer)].empty:
+            # Jika identitas nomor kartu yang di inputkan ada didalam data atau tidak kosong
+            # maka ambil index dari data tersebut
+            # lalu kembalikan data ke-index tersebut
+            index = df.loc[df['nomor_kartu'] == int(inputer)].index[0]
+            return df.iloc[index]
+    except Exception:
+        # Jika in
+        if not df.loc[df['usernama'] == inputer].empty:
+            # maka ambil index dari data tersebut
+            index = df.loc[df['usernama'] == inputer].index[0]
+            # lalu kembalikan data ke-index tersebut
+            return df.iloc[index]
+    
+    # jika benar benar tidak ditemukan makan kembalikan string "Nama identitas - None"
+    return False
 
 
 

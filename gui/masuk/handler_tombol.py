@@ -1,16 +1,16 @@
-# Import library eksternal yaitu library TKinter atau CustomTKinter , time dan hashlib  
+# Import library eksternal yaitu library TKinter atau CustomTKinter , time dan hashlib 
+ 
 import time
 
 # Import module internal
 from ..pendataan.user import cek_user_kartu, cek_pin
 
-# Fungsi untuk kembali ke home
-def kembali_ke_home(app, frame):
-    from ..awal.main import home
-    home(app, frame)
+    
+component = ['canvas']
 
 # Fungsi untuk menghandel tombol masuk dan melanjutkan proses masuk
-def handle_masuk(inputs):
+def handle_masuk(app, canvas, inputs):
+    canvas.delete(component[0])
     # Tampung inputan kedalam variabel tersendiri
     user_input = inputs['usernama'].get()
     pin_input = inputs['pin'].get()
@@ -28,21 +28,45 @@ def handle_masuk(inputs):
             # Jika sesi auth nya tidak berhasil maka akan menampilkan pesan gagal masuk
             # gagal = ctk.CTkLabel(frame['body'], text="GAGAL MASUK", fg_color="orange")
             # gagal.pack(side='top', fill='x', expand=True)
-            print("GAGAL")
+            status = canvas.create_text(
+                301.0,
+                480.0,
+                anchor="nw",
+                text="GAGAL MASUK",
+                fill="red",
+                font=("Poppins Medium", 16 * -1)
+            )
+            component.insert(0,status)
         else:
             # Jika sesi auth nya berhasil maka akan menampilkan pesan berhasil
             # sukses = ctk.CTkLabel(frame['body'], text="BERHASIL MASUk", fg_color="green")
             # sukses.pack(side='top', fill='x', expand=True)
-            print("SUKSES")
-            
+            status = canvas.create_text(
+                301.0,
+                480.0,
+                anchor="nw",
+                text="SUKSES MASUK",
+                fill="green",
+                font=("Poppins Medium", 16 * -1)
+            )
+            component.insert(0,status)
             # Jeda program selama 1 detik
             time.sleep(1)
-            
             # Lanjutkan ke dashboard
-            # dashboard(app, frame, sesi)
+            from ..menu.main import dashboard
+            dashboard(app, sesi)
     
     else:
-        print("GAGAL")
+
+        status = canvas.create_text(
+            301.0,
+            480.0,
+            anchor="nw",
+            text="GAGAL MASUK",
+            fill="red",
+            font=("Poppins Medium", 16 * -1)
+        )
+        component.insert(0,status)
         # Jika user tidak ada makan akan menampilkan pesan tidak ditemukan
         # gagal = ctk.CTkLabel(frame['body'], text="USER ATAU NOMOR KARTU TIDAK DITEMUKAN", fg_color="yellow", text_color='black')
         # gagal.pack(side='top', fill='x', expand=True)

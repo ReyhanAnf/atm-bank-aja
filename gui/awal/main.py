@@ -7,7 +7,7 @@ from tkinter import PhotoImage, Button, Canvas
 # from ..masuk.main import formulir_masuk
 # from ..daftar.main import formulir_daftar
 # from ..setelan import reset_frame,
-from ..setelan import relative_to_assets, reset_frame
+from ..setelan import akses_aset_media, reset_frame
 from ..masuk.main import formulir_masuk
 from ..daftar.main import formulir_daftar
 
@@ -16,9 +16,9 @@ LOC = "awal"
 # Fungsi Home - Tampilan awal aplikasi
 def home(app):
     # Buat judul aplikasi
-    # app.title("BANK AJA - GUI")
+    app.title("BANK AJA - GUI")
+    app.geometry("687x549")
     # app.geometry("687x549")
-    # app.configure(bg = "#EBF3FF")
     
     # Buat Frame Canvas
     canvas = Canvas(
@@ -32,32 +32,30 @@ def home(app):
         )
     canvas.place(x = 0, y = 0)
     
-    # Reset semua frame utama agar bersih dari widget lain
-    # reset_frame(frame['header'])
-    # reset_frame(frame['body'])
-    # reset_frame(frame['footer'])
+    ###################################################### HEADER
+    ###################################################### 
     
-    header_img = PhotoImage(file=relative_to_assets("image_1.png", LOC))
+    # Buat tampilan judul untuk navigasi
+    header_img = PhotoImage(file=akses_aset_media("image_1.png", LOC))
     header = canvas.create_image(
         343.0,
         42.0,
         image=header_img
     )
-
-    logo_img = PhotoImage(file=relative_to_assets("image_2.png", LOC))
+    logo_img = PhotoImage(file=akses_aset_media("image_2.png", LOC))
     logo = canvas.create_image(
         88.0,
         47.0,
         image=logo_img
     )
-    
-    sapaan_image =PhotoImage(file=relative_to_assets("image_3.png", LOC))
+    sapaan_image =PhotoImage(file=akses_aset_media("image_3.png", LOC))
     sapaan = canvas.create_image(
         344.0,
         137.0,
         image=sapaan_image
     )
 
+    # # Tampilkan tampilan judul untuk navigasi
     canvas.create_text(
         181.0,
         125.0,
@@ -66,10 +64,20 @@ def home(app):
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
+    
 
     
+    ###################################################### 
+    ###################################################### HEADER
+
+    
+    
+    ###################################################### BODY
+    ###################################################### 
+    
+    # Tampilkan Tombol MASUK
     masuk_img =PhotoImage(
-        file=relative_to_assets("button_1.png", LOC))
+        file=akses_aset_media("button_1.png", LOC))
     masuk_btn= Button(
         image=masuk_img,
         borderwidth=0,
@@ -85,8 +93,9 @@ def home(app):
     )
 
     
+    # Tampilkan Tombol DAFTAR
     daftar_img =PhotoImage(
-        file=relative_to_assets("button_2.png", LOC))
+        file=akses_aset_media("button_2.png", LOC))
     daftar_btn= Button(
         image=daftar_img,
         borderwidth=0,
@@ -102,8 +111,9 @@ def home(app):
     )
 
     
+    # Tampilkan Tombol KELUAR
     keluar_img = PhotoImage(
-        file=relative_to_assets("button_3.png", LOC))
+        file=akses_aset_media("button_3.png", LOC))
     keluar_btn = Button(
         image=keluar_img,
         borderwidth=0,
@@ -117,15 +127,23 @@ def home(app):
         width=538.0,
         height=126.0
     )
+    ###################################################### 
+    ###################################################### BODY
 
     
+    
+    
+    ###################################################### FOOTER
+    ###################################################### 
+    
+    from ..about import about
     about_img =PhotoImage(
-        file=relative_to_assets("button_4.png", LOC))
+        file=akses_aset_media("button_4.png", LOC))
     about_btn= Button(
         image=about_img,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("about_btn clicked"),
+        command=lambda: about(app),
         relief="flat"
     )
     about_btn.place(
@@ -135,63 +153,9 @@ def home(app):
         height=76.0
     )
     
+    ###################################################### 
+    ###################################################### FOOTER
+    
     app.mainloop()
-    ###################################################### HEADER
-    ###################################################### 
-    
-    
-    # Buat tampilan judul untuk navigasi
-    # title = ctk.CTkButton(frame['header'], text="BANK AJA - HOME", font=('Arial', 28, 'bold'))
-    # # Tampilkan tampilan judul untuk navigasi
-    # title.pack(side="top")
-    
-    ###################################################### 
-    ###################################################### HEADER
-    
-    
-    
-    ###################################################### BODY
-    ###################################################### 
-    
-    #Sapaan
-    # sapaan = ctk.CTkLabel(frame['body'], text="Halo! Selamat Datang Di BANK AJA. Silahkan Masuk atau Mendaftar")
-    # # Tampilkan Sapaan
-    # sapaan.pack(side="top", fill='x')
-    
-    ###################################################### 
-    ###################################################### BODY
-    
-    
-    
-    ###################################################### FOOTER
-    ###################################################### 
-    
-    # Buat tombol masuk
-    # parameter command adalah untuk menjalankan perintah ketika di klik
-    # lambda merupakan fungsi sederhana untuk keperluan sekali saja
-    # ketika tombol masuk di klik maka akan masuk ke fungsi lambda yang mengeksekusi fungsi formulir masuk
-    # masukBtn = ctk.CTkButton(frame['footer'], height=50,text="Masuk", command=lambda : formulir_masuk(app, frame))
-    # # Tampilkan tombol
-    # masukBtn.pack(side="left", fill='x', expand=True, padx=10)
-    
-    # Buat tombol daftar
-    # parameter command adalah untuk menjalankan perintah ketika di klik
-    # lambda merupakan fungsi sederhana untuk keperluan sekali saja
-    # ketika tombol daftar di klik maka akan menjalankan ke fungsi lambda yang mengeksekusi fungsi formulir daftar
-    # daftarBtn = ctk.CTkButton(frame['footer'], height=50,text="Daftar", fg_color='blue', command=lambda : formulir_daftar(app, frame))
-    # # Tampilkan tombol
-    # daftarBtn.pack(side="left", fill='x', expand=True, padx=10)
-    
-    # Buat tombol keluar
-    # parameter command adalah untuk menjalankan perintah ketika di klik
-    # lambda merupakan fungsi sederhana untuk keperluan sekali saja
-    # ketika tombol keluar di klik maka akan menjalankan ke fungsi lambda yang mengeksekusi fungsi formulir keluar
-    # keluarBtn = ctk.CTkButton(frame['footer'], height=50,text="Keluar", fg_color='red', command=exit)
-    # # Tampilkan tombol
-    # keluarBtn.pack(side="left", fill='x', expand=True, padx=10)
-    
-    ###################################################### 
-    ###################################################### FOOTER
-
 
     

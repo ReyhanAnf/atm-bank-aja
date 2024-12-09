@@ -8,7 +8,7 @@ def reset_frame(frame):
         
  
         
-def relative_to_assets(path: str, loc) -> Path:
+def akses_aset_media(path: str, loc) -> Path:
     PATH = Path(__file__).parent
     ASSETS_PATH = PATH / Path(PATH.joinpath(r"assets").joinpath(loc))
     return ASSETS_PATH / Path(path)
