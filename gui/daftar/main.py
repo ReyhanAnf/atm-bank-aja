@@ -332,7 +332,8 @@ def formulir_daftar(app):
         bd=0,
         bg="#DAE1EB",
         fg="#000716",
-        highlightthickness=0
+        highlightthickness=0,
+        font=("Poppins", 16 * -1)
     )
     ialamat.place(
         x=386.0,
@@ -464,6 +465,15 @@ def formulir_daftar(app):
         width=236.0,
         height=35.0
     )
+    
+    status = canvas.create_text(
+        261.0,
+        650.0,
+        anchor="nw",
+        text="CEK KEMBALI DATA ANDA!!",
+        fill="orange",
+        font=("Poppins Medium", 16 * -1)
+    )
 
     # Bungkus semua inputan kedalam 1 variabel penampung bertipe dict
     inputs = {
@@ -491,8 +501,7 @@ def formulir_daftar(app):
     # lambda merupakan fungsi sederhana untuk keperluan sekali saja
     # ketika tombol batal di klik maka akan batal ke fungsi lambda yang mengeksekusi fungsi kembali ke home
     from ..awal.main import home
-    keluar_img = PhotoImage(
-        file=akses_aset_media("button_3.png", LOC))
+    keluar_img = PhotoImage(file=akses_aset_media("button_3.png", LOC))
     keluar_btn = Button(
         image=keluar_img,
         borderwidth=0,
@@ -514,13 +523,16 @@ def formulir_daftar(app):
     # ketika tombol daftar di klik maka akan daftar ke fungsi lambda yang mengeksekusi fungsi handle daftar
     from .handler_tombol import handle_daftar
     
-    daftar_img = PhotoImage(
-        file=akses_aset_media("button_1.png", LOC))
+    def command_daftar():
+        canvas.delete(status)
+        handle_daftar( canvas, inputs)
+        
+    daftar_img = PhotoImage(file=akses_aset_media("button_1.png", LOC))
     daftar_btn = Button(
         image=daftar_img,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: handle_daftar(inputs, canvas),
+        command=command_daftar,
         relief="flat"
     )
     daftar_btn.place(

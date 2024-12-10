@@ -88,7 +88,7 @@ def cek_penerima(identity):
         return df.iloc[index]
     else:
         # jika benar benar tidak ditemukan makan kembalikan string "Nama identitas - None"
-        return f"{identity} - None"
+        return f"{identity} - xxx"
 
 
 # Fungsi untuk men generate kode secara otomatis untuk pembuatan id transaksi
@@ -242,7 +242,7 @@ def konfirmasi_transaksi(app, sesi, data, mutasi):
     
     
     # jika metode nya tidak transfer
-    if data['metode'] != 'transfer':
+    if data['metode'] != 'transfer' and data['metode'] != 'bayar':
         # maka hapus nilai data nama pengirim dan nama penerima
         del content['Nama_Pengirim']
         del content['Nama_Penerima']
@@ -571,7 +571,7 @@ def sukses_transaksi(app, sesi, data, content):
     )
     
     # jika metode nya tidak transfer
-    if data['metode'] != 'transfer':
+    if data['metode'] != 'transfer' and data['metode'] != 'bayar':
         
         # TAMPILKAN LABEL NAMA PENGIRIM
         canvas.create_text(
@@ -677,7 +677,7 @@ def sukses_transaksi(app, sesi, data, content):
         653.0,
         304.0,
         anchor="ne",
-        text=content['Metode'],
+        text=content['Metode'].capitalize(),
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -871,7 +871,7 @@ def gagal_transaksi(app, sesi, data, content):
     )
     
     # jika metode nya tidak transfer
-    if data['metode'] != 'transfer':
+    if data['metode'] != 'transfer' and data['metode'] != 'bayar':
         
         # TAMPILKAN LABEL NAMA PENGIRIM
         canvas.create_text(
@@ -976,7 +976,7 @@ def gagal_transaksi(app, sesi, data, content):
         653.0,
         304.0,
         anchor="ne",
-        text=content['Metode'],
+        text=content['Metode'].capitalize(),
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )

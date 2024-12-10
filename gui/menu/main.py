@@ -242,12 +242,13 @@ def dashboard(app, sesi):
         
         # Tombol Bayar
         # Ketika di Klik akan menjalankan fungsi lamda yang menjalankan fungsi untuk ke menu bayar
+        from .bayar.main import bayar
         bayar_img = PhotoImage(file=akses_aset_media("button_8.png", LOC))
         bayar_btn = Button(
             image=bayar_img,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("bayar_btn clicked"),
+            command=lambda: bayar(app, sesi),
             relief="flat"
         )
         bayar_btn.place(

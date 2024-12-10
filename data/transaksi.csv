@@ -1,68 +1,70 @@
 kode,pengirim,metode,penerima,status,jumlah,admin,total,waktu
-STR-4162063234,reyhananf,setor,reyhananf,sukses,10000000000,0,10000000000,2024-11-24 13:54:50.685746
-TRF-5387128142,reyhananf,transfer,wita,sukses,2000000000,2500,2000002500,2024-11-24 13:55:42.097769
-STR-0814400627,reyhananf,setor,reyhananf,sukses,10000000000,0,10000000000,2024-11-24 14:44:24.480519
-TRF-6777204025,reyhananf,transfer,wita,sukses,2000000000,2500,2000002500,2024-11-24 14:54:00.212919
-STR-0450610575,reyhananf,setor,reyhananf,sukses,100000,0,100000,2024-11-24 14:54:40.199885
-STR-0703635240,wita,setor,wita,sukses,500000000,0,500000000,2024-11-24 14:58:08.067807
-STR-3082222827,wita,setor,wita,sukses,250000000,0,250000000,2024-11-24 15:00:16.662778
-TRF-0242417146,wita,transfer,reyhananf,sukses,100000000,2500,100002500,2024-11-24 15:00:49.551749
-TRF-5031122423,wita,transfer,wita,sukses,1000000,2500,1002500,2024-11-24 15:05:27.448450
-TRF-5616117235,wita,transfer,wita,sukses,1000000,2500,1002500,2024-11-24 15:06:14.453980
-TRF-4131525803,wita,transfer,reyhananf,sukses,1000000,2500,1002500,2024-11-24 15:06:40.459567
-TRF-7658327208,wita,transfer,reyhananf,sukses,100000,2500,102500,2024-11-24 15:07:23.049666
-TRF-6314613165,wita,transfer,reyhananf,sukses,40000,2500,42500,2024-11-24 15:08:10.503293
-TRF-3234682506,wita,transfer,reyhananf,sukses,100000,2500,102500,2024-11-24 15:09:56.234120
-STR-5170822347,wita,setor,wita,sukses,1000000,0,1000000,2024-11-24 15:10:16.245160
-TRF-6462852114,wita,transfer,reyhananf,sukses,50000,2500,52500,2024-11-24 15:11:10.817473
-TRF-7408440531,wita,transfer,reyhananf,sukses,50000,2500,52500,2024-11-24 15:11:53.005434
-TRF-4631730702,wita,transfer,reyhananf,sukses,50000,2500,52500,2024-11-24 15:12:44.930604
-STR-8434466017,reyhananf,setor,reyhananf,sukses,100000,0,100000,2024-11-24 15:13:44.886362
-TRK-0525417534,wita,tarik,wita,sukses,2000000000,0,2000000000,2024-11-24 15:14:08.660787
-TRK-2123346048,wita,tarik,wita,sukses,100000,0,100000,2024-11-24 15:14:34.535819
-TRF-8214000720,wita,transfer,reyhananf,sukses,2399997500,2500,2400000000,2024-11-24 15:18:12.960813
-TRK-8460481705,wita,tarik,wita,sukses,900000,0,900000,2024-11-24 15:18:26.938838
-A-4500721668,wita,bayar,TopUp Shopeepay - 085871235944,sukses,2399997500,2500,2400000000,2024-11-24 15:20:20.514535
-,reyhananf,transfer,vyn18,sukses,100000,2500,102500,2024-11-30 20:12:44.614282
-,reyhananf,transfer,vyn18,sukses,100000,2500,102500,2024-11-30 20:19:57.303023
-,reyhananf,transfer,vyn18,sukses,1000000,2500,1002500,2024-11-30 20:21:17.784654
-,reyhananf,transfer,vyn18,sukses,10000000,2500,10002500,2024-11-30 20:24:33.685922
-TRF-7385865806,reyhananf,transfer,wita,sukses,10000000,2500,10002500,2024-11-30 20:46:08.374110
-TRF-1782888873,reyhananf,transfer,wita,sukses,100000000,2500,100002500,2024-11-30 20:51:31.195189
-TRF-5706706438,wita,transfer,vyn18,sukses,9997500,2500,10000000,2024-11-30 20:52:54.654019
-TRK-3505417312,reyhananf,tarik,reyhananf,sukses,400000,0,400000,2024-11-30 21:27:54.783139
-STR-6548078506,reyhananf,setor,reyhananf,sukses,500000,0,500000,2024-11-30 21:28:17.041647
-STR-0608565883,reyhananf,setor,reyhananf,sukses,100000,0,100000,2024-11-30 21:28:43.877131
-STR-8564613742,reyhananf,setor,reyhananf,sukses,100000,0,100000,2024-11-30 21:29:14.287468
-STR-8231865532,reyhananf,setor,reyhananf,sukses,400000,0,400000,2024-11-30 21:29:32.553123
-STR-6426762776,reyhananf,setor,reyhananf,sukses,1000000,0,1000000,2024-11-30 21:29:55.808117
-TRK-3362267742,reyhananf,tarik,reyhananf,sukses,10381000000,0,10381000000,2024-11-30 21:30:33.459261
-TRF-3036628267,reyhananf,transfer,wita,sukses,50000,2500,52500,2024-11-30 21:32:37.064199
-TRK-4035282062,reyhananf,tarik,reyhananf,sukses,500000,0,500000,2024-11-30 21:33:03.095555
-STR-4428605000,reyhananf,setor,reyhananf,sukses,200000,0,200000,2024-11-30 21:33:31.537308
-A-3675574746,reyhananf,bayar,TopUp Gopay - 085871235944 - None,sukses,100000,2500,102500,2024-12-01 06:22:14.906209
-STR-5428733584,reyhananf,setor,reyhananf,sukses,100000000,0,100000000,2024-12-01 06:28:06.219294
-TRK-3114711807,reyhananf,tarik,reyhananf,sukses,100000000,0,100000000,2024-12-01 06:28:26.652067
-A-5786673407,reyhananf,bayar,TopUp Gopay - 085871235944 - None,sukses,100000,2500,102500,2024-12-01 06:29:00.364910
-A-3486677083,reyhananf,bayar,Pulsa - 085871235944 - None,sukses,10000,2500,12500,2024-12-01 16:27:36.866250
-STR-5323061178,reyhananf,setor,reyhananf,sukses,1000000000,0,1000000000,2024-12-02 10:54:12.154042
-TRF-6871713370,reyhananf,transfer,vyn18,sukses,1000000,2500,1002500,2024-12-09 10:34:56.631713
-A-1835503535,reyhananf,bayar,TopUp Ovo - 08,sukses,1000000,2500,1002500,2024-12-09 10:35:59.442030
-TRF-1224283642,reyhananf,transfer,vyn18,sukses,100000,2500,102500,2024-12-09 22:00:05.296566
-TRF-7187455730,reyhananf,transfer,vyn18,sukses,200000,2500,202500,2024-12-09 22:03:41.136197
-TRF-7187455730,reyhananf,transfer,vyn18,sukses,200000,2500,202500,2024-12-09 22:04:24.120707
-TRF-1726526811,reyhananf,transfer,vyn18,sukses,250000,2500,252500,2024-12-09 22:15:59.594533
-TRF-1588541674,reyhananf,transfer,vyn18,sukses,50000,2500,52500,2024-12-09 22:19:07.047433
-TRF-5401331184,reyhananf,transfer,vyn18,sukses,100000,2500,102500,2024-12-09 22:31:19.505545
-TRF-2304254071,reyhananf,transfer, - None,sukses,100000,2500,102500,2024-12-09 22:38:43.958191
-TRF-3630146440,reyhananf,transfer, - None,sukses,50000,2500,52500,2024-12-09 22:40:26.646915
-TRF-7064035571,reyhananf,transfer, - None,sukses,100000,2500,102500,2024-12-09 22:41:12.732053
-TRF-4248161852,reyhananf,transfer,  - None,sukses,50000,2500,52500,2024-12-09 22:43:25.018147
-STR-4238606167,reyhananf,setor,Reyhan Andrea Firdaus - None,sukses,100000,0,100000,2024-12-09 23:15:49.080212
-STR-2776850407,reyhananf,setor,Reyhan Andrea Firdaus - None,sukses,200000,0,200000,2024-12-09 23:16:43.111369
-STR-6424510813,reyhananf,setor,Reyhan Andrea Firdaus - None,sukses,1000000,0,1000000,2024-12-09 23:27:53.606787
-STR-2528287331,reyhananf,setor,Reyhan Andrea Firdaus - None,sukses,1000000,0,1000000,2024-12-09 23:29:42.265967
-TRK-8322442260,reyhananf,tarik,reyhananf,sukses,2000000,0,2000000,2024-12-09 23:36:30.064486
-TRK-4874245433,reyhananf,tarik,reyhananf,sukses,99000,0,99000,2024-12-09 23:53:32.775219
-STR-0777675708,reyhananf,setor,reyhananf,sukses,9000000000,0,9000000000,2024-12-09 23:54:45.837337
-STR-7060634302,reyhananf,setor,reyhananf,sukses,990000000000,0,990000000000,2024-12-09 23:55:08.163829
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,

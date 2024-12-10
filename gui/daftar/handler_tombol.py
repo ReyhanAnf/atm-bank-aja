@@ -1,16 +1,14 @@
 # Import library eksternal yaitu library TKinter atau CustomTKinter , time dan hashlib  
 import time, hashlib
-import customtkinter as ctk
 
 # Import module internal
-from ..pendataan.user import cek_user_kartu
-from .proses import generate_kode, kartu_atm
+from ..pendataan.user import cek_user_kartu, tambah_user
+from .proses import generate_kode
 
 component = ['canvas']
 
 # Fungsi untuk menghandel tombol daftar dan melanjutkan proses daftar
-def handle_daftar(inputs, canvas):
-    canvas.delete(component[0])
+def handle_daftar(canvas, inputs):
     # Konversi data dalam inputs kedalam variabel data dengan mengambil data dalam inputan dengan method get
     # Karena inputan masih merupakan data dummy
     data = {
@@ -60,7 +58,7 @@ def handle_daftar(inputs, canvas):
                     261.0,
                     650.0,
                     anchor="nw",
-                    text="DATA VALID",
+                    text="DATA VALID - PROSES MENDAFTAR....",
                     fill="green",
                     font=("Poppins Medium", 16 * -1)
                 )
@@ -72,9 +70,38 @@ def handle_daftar(inputs, canvas):
                 data['saldo'] = saldo
                 
                 # Tampilkan kartu atm untuk melihat preview data yang diinputkan
-                # kartu_atm(app, frame, data)
+                
+                try:
+                    canvas.delete(component[0])
+                    
+                    # Tambahkan data user baru ke database
+                    tambah_user(data)
+                    status = canvas.create_text(
+                        261.0,
+                        650.0,
+                        anchor="nw",
+                        text="SUKSES MENDAFTAR",
+                        fill="green",
+                        font=("Poppins Medium", 16 * -1)
+                    )
+                    component.insert(0, status)
+                        
+                except Exception:
+                    canvas.delete(component[0])
+                    # Jika error dengan berbagai kondisi
+                    # Tampilkan pesan gagal
+                    status = canvas.create_text(
+                        261.0,
+                        650.0,
+                        anchor="nw",
+                        text="GAGAL MENDAFTAR",
+                        fill="red",
+                        font=("Poppins Medium", 16 * -1)
+                    )
+                    component.insert(0, status)
                 
             except Exception:
+                canvas.delete(component[0])
                 # Jika terdeteksi error maka akan tampilkan peringatan bukan angka
                 status = canvas.create_text(
                     261.0,
@@ -89,6 +116,7 @@ def handle_daftar(inputs, canvas):
     
     else:
         # Jika ternyata user sudah terdaftar maka tampilkan peringatan
+        canvas.delete(component[0])
         status = canvas.create_text(
             261.0,
             650.0,
