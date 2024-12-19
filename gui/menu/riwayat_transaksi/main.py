@@ -102,7 +102,7 @@ def riwayat_transaksi(app, sesi):
         # Ubah Data yang bersifat uang menjadi tipe mata uang
         def uang(nominal):
             if type(nominal) == type(1):
-                return f'Rp {nominal:,}'.replace(',','.')
+                return f'Rp {int(nominal):,}'.replace(',','.')
             else:
                 return nominal
         
