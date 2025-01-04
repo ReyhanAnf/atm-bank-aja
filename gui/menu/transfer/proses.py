@@ -8,8 +8,8 @@ def mutasi(data):
     data_transaksi = data.copy()
     
     print(data_transaksi['penerima'])
-    if data_transaksi['penerima'].split(' - None')[0].isspace():
-        return False
+    # if data_transaksi['penerima'].split(' - None')[0].isspace():
+    #     return False
     
     # Dalam data_transaksi ubah dalam key pengirimnya yang asalnya dict user menjadi string nama user
     data_transaksi['pengirim'] = data_transaksi['pengirim']['usernama']

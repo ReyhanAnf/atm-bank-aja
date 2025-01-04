@@ -47,7 +47,11 @@ def riwayat_transaksi(sesi):
         
         # ISI
         data = data_transaksi()
+        
+        #Filter
         data = data[(data['pengirim'] == user['usernama']) | (data['penerima'] == user['usernama'])]
+        
+        # Tampilkan tabel
         tabel(data, judul='Riwayat Transaksi')
         #
         

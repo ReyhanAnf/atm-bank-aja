@@ -24,7 +24,7 @@ def handle_masuk(app, canvas, inputs):
         sesi = cek_pin(pin_input, user)
         # Jika benar maka sesi akan mengembalika nilai true
         
-        if not sesi['auth']:
+        if not sesi['auth'] : #False => True || True => False
             # Jika sesi auth nya tidak berhasil maka akan menampilkan pesan gagal masuk
             # gagal = ctk.CTkLabel(frame['body'], text="GAGAL MASUK", fg_color="orange")
             # gagal.pack(side='top', fill='x', expand=True)

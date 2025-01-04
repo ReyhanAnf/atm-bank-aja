@@ -25,7 +25,6 @@ def tambah_transaksi(data):
     
     df = data_transaksi()
     df.loc[len(df)] = data
-    
 
     df.to_csv('./data/transaksi.csv', index=False)
     return True
