@@ -109,7 +109,7 @@ def about(app):
         595.0,
         334.0,
         anchor="nw",
-        text="19240133",
+        text="19240121",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -118,7 +118,7 @@ def about(app):
         52.0,
         334.0,
         anchor="nw",
-        text="Gina",
+        text="Gina Alfi Hasanah",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -127,7 +127,7 @@ def about(app):
         595.0,
         370.0,
         anchor="nw",
-        text="19240133",
+        text="19240421",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -136,7 +136,7 @@ def about(app):
         52.0,
         370.0,
         anchor="nw",
-        text="Ineu",
+        text="Ineu Novianti Agustina",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -145,7 +145,7 @@ def about(app):
         594.0,
         406.0,
         anchor="nw",
-        text="19240133",
+        text="19240420",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -154,7 +154,7 @@ def about(app):
         53.0,
         406.0,
         anchor="nw",
-        text="Nazwa",
+        text="Nazwa Amelia Febrianty",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
@@ -163,7 +163,7 @@ def about(app):
         596.0,
         299.0,
         anchor="nw",
-        text="19240133",
+        text="19240134",
         fill="#000000",
         font=("Poppins Medium", 16 * -1)
     )
